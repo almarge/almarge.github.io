@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Madusha — filosofia, notes i escrits.">
+<title>madusha</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="#">madusha</a>
+  <nav><a href="#escrits">escrits</a><a href="#sobre">sobre</a></nav>
+</header>
+
+<main>
+  <section class="intro">
+    <p class="small">notes sobre filosofia, vida i altres coses</p>
+    <h1>Un lloc per pensar<br><i>en veu alta.</i></h1>
+    <p class="lead">Escrits, idees i preguntes que mereixen una mica més de temps.</p>
+  </section>
+
+  <section id="escrits" class="writing">
+    <div class="label">ESCRITS</div>
+
+    <article class="featured">
+      <div class="date">14.09.2026 · FILOSOFIA</div>
+      <h2>Potser pensar no serveix per trobar respostes</h2>
+      <p>Algunes preguntes no existeixen per ser resoltes. Existeixen per canviar la manera com mirem les coses.</p>
+      <a href="#article-1">llegir →</a>
+    </article>
+
+    <div class="list">
+      <article>
+        <div class="date">09.09.2026 · NOTES</div>
+        <h3>L'art de no tenir una opinió</h3>
+        <a href="#article-2">llegir →</a>
+      </article>
+      <article>
+        <div class="date">02.09.2026 · FILOSOFIA</div>
+        <h3>Què queda de nosaltres quan ningú ens mira?</h3>
+        <a href="#article-3">llegir →</a>
+      </article>
+      <article>
+        <div class="date">28.08.2026 · ESCRITS ALEATORIS</div>
+        <h3>Notes trobades a les 02:17</h3>
+        <a href="#article-4">llegir →</a>
+      </article>
+      <article>
+        <div class="date">21.08.2026 · SOCIETAT</div>
+        <h3>Sobre la necessitat d'estar ocupats</h3>
+        <a href="#article-5">llegir →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="sobre" class="about">
+    <div class="label">SOBRE</div>
+    <div>
+      <p class="large">Madusha és un espai personal per escriure sobre les coses que em fan pensar.</p>
+      <p>No pretén donar respostes definitives. Només conservar algunes preguntes, idees i observacions abans que desapareguin.</p>
+      <p>Aquí hi caben filosofia, cultura, tecnologia, vida quotidiana i qualsevol altra cosa que mereixi ser pensada.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>madusha © 2026</span>
+  <span>fet sense pressa</span>
+</footer>
+
+<dialog id="reader">
+  <button onclick="reader.close()" aria-label="Tancar">×</button>
+  <div class="date" id="rmeta"></div>
+  <h2 id="rtitle"></h2>
+  <div id="rbody"></div>
+</dialog>
+
+<script>
+const posts = {
+  "article-1": ["14.09.2026 · FILOSOFIA","Potser pensar no serveix per trobar respostes",
+  "Algunes preguntes no existeixen per ser resoltes. Existeixen per canviar la manera com mirem les coses.<br><br>Potser aquesta és una de les funcions de la filosofia: no donar-nos un mapa, sinó fer-nos desconfiar dels mapes que ja teníem.<br><br>Pensar també pot ser una manera de quedar-nos una mica més davant d'allò que encara no entenem."],
+  "article-2": ["09.09.2026 · NOTES","L'art de no tenir una opinió",
+  "Vivim envoltats d'opinions immediates. Potser una de les formes més petites de llibertat és permetre'ns dir: encara no ho sé.<br><br>No tenir una opinió no sempre és ignorància. De vegades és paciència."],
+  "article-3": ["02.09.2026 · FILOSOFIA","Què queda de nosaltres quan ningú ens mira?",
+  "Hi ha una versió de nosaltres que només apareix quan no hi ha ningú davant.<br><br>Potser el jo més interessant és precisament aquell que no necessita una audiència."],
+  "article-4": ["28.08.2026 · ESCRITS ALEATORIS","Notes trobades a les 02:17",
+  "Dormir és una manera estranya de confiar en el món.<br><br>Les millors idees sovint arriben sense cita prèvia.<br><br>Potser la vida no necessita una teoria tan bona com una pregunta honesta."],
+  "article-5": ["21.08.2026 · SOCIETAT","Sobre la necessitat d'estar ocupats",
+  "Hem convertit estar ocupats en una prova que la nostra vida avança.<br><br>Però una agenda plena no és necessàriament una vida plena. De vegades només és una agenda plena."]
+};
+document.querySelectorAll('a[href^="#article-"]').forEach(a=>a.onclick=e=>{
+ e.preventDefault(); const p=posts[a.getAttribute('href').slice(1)];
+ rmeta.textContent=p[0]; rtitle.textContent=p[1]; rbody.innerHTML=p[2]; reader.showModal();
+});
+</script>
+</body>
+</html>

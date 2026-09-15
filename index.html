@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Almarge">
+  <meta name="description" content="Almarge — escrits">
   <title>almarge</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="#">almarge</a>
+  <a class="brand" href="index.html">almarge</a>
   <nav><a href="#escrits">escrits</a><a href="#sobre">sobre</a></nav>
 </header>
 
@@ -25,11 +25,11 @@
     </div>
 
     <article>
-      <div class="date">14.09.2026</div>
+      <div class="date">15.09.2026</div>
       <div>
-        <h2>Potser pensar no serveix per trobar respostes</h2>
-        <p>Un primer text de mostra. Aviat hi posarem alguna cosa que sigui realment teva.</p>
-        <a class="read" href="#article-1">llegir →</a>
+        <h2>El dol no se supera</h2>
+        <p>El dol no és només tristesa. És l’esfondrament d’una realitat en què confiaves, i la transformació del món interior que havies construït al voltant d’algú.</p>
+        <a class="read" href="dol.html">llegir →</a>
       </div>
     </article>
   </section>
@@ -41,23 +41,5 @@
 </main>
 
 <footer><span>almarge © 2026</span><span>fet sense pressa</span></footer>
-
-<dialog id="reader">
-  <button onclick="reader.close()" aria-label="Tancar">×</button>
-  <div class="reader-meta">14.09.2026 · ESCRIT</div>
-  <h2>Potser pensar no serveix per trobar respostes</h2>
-  <div class="reader-body">
-    <p>Un primer text de mostra.</p>
-    <p>Aquí hi posarem el teu primer escrit quan estigui llest.</p>
-  </div>
-</dialog>
-
-<script>
-const reader = document.getElementById("reader");
-document.querySelector(".read").addEventListener("click", function(e) {
-  e.preventDefault();
-  reader.showModal();
-});
-</script>
 </body>
 </html>

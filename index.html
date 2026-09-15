@@ -12,64 +12,51 @@
   <a class="brand" href="#">almarge</a>
   <nav><a href="#escrits">escrits</a><a href="#sobre">sobre</a></nav>
 </header>
+
 <main>
   <section class="intro">
-    <h1>no sempre falta un camí.<br><em>a vegades falta veure'l clar.</em></h1>
+    <h1>coses que no sabia<br><em>on posar.</em></h1>
   </section>
 
   <section id="escrits" class="writing">
-    <div class="section-label">ÚLTIMS ESCRITS</div>
+    <div class="section-head">
+      <div class="section-label">ÚLTIMS ESCRITS</div>
+      <div class="section-note">de moment, un</div>
+    </div>
 
     <article>
       <div class="date">14.09.2026</div>
-      <div><h2>Potser pensar no serveix per trobar respostes</h2>
-      <p>Algunes preguntes no existeixen per ser resoltes. Existeixen per canviar la manera com mirem les coses.</p>
-      <a class="read" href="#article-1">llegir →</a></div>
-    </article>
-
-    <article>
-      <div class="date">28.08.2026</div>
-      <div><h2>Notes trobades a les 02:17</h2>
-      <p>Hi ha idees que només apareixen quan tot queda en silenci.</p>
-      <a class="read" href="#article-2">llegir →</a></div>
-    </article>
-
-    <article>
-      <div class="date">21.08.2026</div>
-      <div><h2>Sobre la necessitat d'estar ocupats</h2>
-      <p>Potser no ens falta temps. Potser ens costa estar amb nosaltres mateixos quan no tenim res a fer.</p>
-      <a class="read" href="#article-3">llegir →</a></div>
+      <div>
+        <h2>Potser pensar no serveix per trobar respostes</h2>
+        <p>Un primer text de mostra. Aviat hi posarem alguna cosa que sigui realment teva.</p>
+        <a class="read" href="#article-1">llegir →</a>
+      </div>
     </article>
   </section>
 
   <section id="sobre" class="about">
     <div class="section-label">SOBRE</div>
-    <p>Almarge és un lloc per escriure coses que no sé ben bé on posar.</p>
+    <p>Almarge és el lloc on acaben les coses que no sabia on posar.</p>
   </section>
 </main>
+
 <footer><span>almarge © 2026</span><span>fet sense pressa</span></footer>
 
 <dialog id="reader">
   <button onclick="reader.close()" aria-label="Tancar">×</button>
-  <div class="reader-meta" id="reader-meta"></div>
-  <h2 id="reader-title"></h2><div id="reader-body"></div>
+  <div class="reader-meta">14.09.2026 · ESCRIT</div>
+  <h2>Potser pensar no serveix per trobar respostes</h2>
+  <div class="reader-body">
+    <p>Un primer text de mostra.</p>
+    <p>Aquí hi posarem el teu primer escrit quan estigui llest.</p>
+  </div>
 </dialog>
 
 <script>
-const articles = {
- "article-1": {date:"14.09.2026 · ESCRIT", title:"Potser pensar no serveix per trobar respostes", body:"<p>Algunes preguntes no existeixen per ser resoltes. Existeixen per canviar la manera com mirem les coses.</p><p>Aquest és un text de mostra. Més endavant substituirem aquests textos pels teus.</p>"},
- "article-2": {date:"28.08.2026 · ESCRIT", title:"Notes trobades a les 02:17", body:"<p>Hi ha idees que només apareixen quan tot queda en silenci.</p><p>Aquí hi anirà el text complet.</p>"},
- "article-3": {date:"21.08.2026 · ESCRIT", title:"Sobre la necessitat d'estar ocupats", body:"<p>Potser no ens falta temps. Potser ens costa estar amb nosaltres mateixos quan no tenim res a fer.</p><p>Aquí hi anirà el text complet.</p>"}
-};
-document.querySelectorAll(".read").forEach(link=>{
- link.addEventListener("click",e=>{
+const reader = document.getElementById("reader");
+document.querySelector(".read").addEventListener("click", function(e) {
   e.preventDefault();
-  const a=articles[link.getAttribute("href").slice(1)];
-  document.getElementById("reader-meta").textContent=a.date;
-  document.getElementById("reader-title").textContent=a.title;
-  document.getElementById("reader-body").innerHTML=a.body;
-  document.getElementById("reader").showModal();
- });
+  reader.showModal();
 });
 </script>
 </body>

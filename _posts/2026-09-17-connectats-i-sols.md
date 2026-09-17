@@ -1,9 +1,6 @@
 [2026-09-17-connectats-i-sols.md](https://github.com/user-attachments/files/32358012/2026-09-17-connectats-i-sols.md)
 ---
-layout: post
-title: "Connectats i sols"
-date: 2026-09-17 00:00:00 +0000
-permalink: /connectats-i-sols.html
+Connectats i sols
 ---
 
 Si estem més connectats que mai, per què tanta gent se sent tan sola? Va ser una conversa interessant que vaig tenir amb un amic. Si mirem enrere en la llarga evolució de la humanitat, una cosa queda clara: els éssers humans no estàvem destinats a viure com vivim ara.

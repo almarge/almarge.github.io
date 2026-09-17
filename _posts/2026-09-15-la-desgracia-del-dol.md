@@ -1,4 +1,4 @@
-[2026-09-15-la-desgracia-del-dol.md](https://github.com/user-attachments/files/32357924/2026-09-15-la-desgracia-del-dol.md)
+
 ---
 La desgràcia del dol
 ---

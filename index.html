@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Almarge — escrits">
   <title>almarge</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="index.html">almarge</a>
+  <a class="brand" href="{{ '/' | relative_url }}">almarge</a>
   <nav><a href="#escrits">escrits</a><a href="#sobre">sobre</a></nav>
 </header>
 
@@ -23,14 +23,16 @@
       <div class="section-label">ESCRITS</div>
     </div>
 
+    {% for post in site.posts %}
     <article>
-      <div class="date">15.09.2026</div>
+      <div class="date">{{ post.date | date: "%d.%m.%Y" }}</div>
       <div>
-        <h2>La desgràcia del dol</h2>
-        <p>El dol no és només tristesa. És l’esfondrament d’una realitat en què confiaves, i la transformació del món interior que havies construït al voltant d’algú.</p>
-        <a class="read" href="dol.html">llegir →</a>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 190 }}</p>
+        <a class="read" href="{{ post.url | relative_url }}">llegir →</a>
       </div>
     </article>
+    {% endfor %}
   </section>
 
   <section id="sobre" class="about">

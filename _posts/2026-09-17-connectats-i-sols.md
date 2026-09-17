@@ -1,4 +1,4 @@
-[2026-09-17-connectats-i-sols.md](https://github.com/user-attachments/files/32358012/2026-09-17-connectats-i-sols.md)
+
 ---
 Connectats i sols
 ---

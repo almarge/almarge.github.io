@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --bg: #f6f4ef;
-  --text: #171717;
+  --bg: #FAF8F3;
+  --text: #2E2A24;
   --muted: #77736c;
-  --line: #d9d5cd;
-  --accent: #7a1f1f;
+  --line: #E5DFD3;
+  --accent: #1B3A2F;
+  --accent-hover: #3A7055;
+  --earth: #8B6F47;
   --max: 980px;
   --reading: 690px;
 }
@@ -44,6 +46,12 @@ a {
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: -0.02em;
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+.brand:hover {
+  color: var(--accent-hover);
 }
 
 nav {
@@ -64,12 +72,13 @@ footer {
 nav a {
   font-size: 0.68rem;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
 .read:hover,
 .back:hover {
-  color: var(--accent);
+  color: var(--accent-hover);
 }
 
 main {
@@ -110,7 +119,7 @@ main {
 .section-label {
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  color: var(--muted);
+  color: var(--earth);
 }
 
 .writing-item {
@@ -124,7 +133,7 @@ main {
 .date {
   padding-top: 8px;
   font-size: 0.62rem;
-  color: var(--muted);
+  color: var(--earth);
   white-space: nowrap;
 }
 
@@ -142,6 +151,7 @@ main {
 
 .writing-content h2 a {
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .writing-content h2 a:hover {
@@ -151,7 +161,7 @@ main {
 .writing-content p {
   margin: 0 0 22px;
   max-width: 650px;
-  color: #55514b;
+  color: #5C5750;
   font-size: 0.95rem;
   line-height: 1.75;
 }
@@ -160,6 +170,8 @@ main {
   font-size: 0.62rem;
   text-decoration: none;
   letter-spacing: 0.04em;
+  color: var(--accent);
+  transition: color 0.2s ease;
 }
 
 .about {
@@ -204,12 +216,13 @@ footer {
 
 .article-top .date {
   font-size: 0.62rem;
-  color: var(--muted);
+  color: var(--earth);
 }
 
 .back {
   font-size: 0.62rem;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .full-article h1 {
@@ -309,3 +322,4 @@ footer {
     padding-bottom: 25px;
   }
 }
+```

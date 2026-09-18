@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --bg: #FAF8F3;
-  --text: #2E2A24;
-  --muted: #77736c;
-  --line: #E5DFD3;
-  --accent: #1B3A2F;
-  --accent-hover: #3A7055;
-  --earth: #8B6F47;
+  --bg: #F4F1E9;
+  --text: #282620;
+  --muted: #706B63;
+  --line: #DDD7CC;
+  --accent: #304B40;
+  --accent-hover: #60776A;
+  --earth: #94765A;
   --max: 980px;
   --reading: 690px;
 }
@@ -103,7 +103,7 @@ main {
 }
 
 .intro h1 em {
-  color: var(--muted);
+  color: var(--accent);
   font-weight: 400;
 }
 
@@ -119,7 +119,7 @@ main {
 .section-label {
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  color: var(--earth);
+  color: var(--accent);
 }
 
 .writing-item {
@@ -322,4 +322,3 @@ footer {
     padding-bottom: 25px;
   }
 }
-```

@@ -113,12 +113,12 @@ html, body {
 /* 2. ALMARGE Mida Massiva */
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(10rem, 50vw, 600px); /* Molt més gran! */
+    font-size: clamp(10rem, 70vw, 900px); /* Molt més gran! */
     line-height: 0.75;
     letter-spacing: 2px; /* Les lletres més juntes */
     color: var(--ink-black);
     text-transform: uppercase;
-    transform: scaleY(2.4); /* Més alt i estirat */
+    transform: scaleY(3.5); /* Més alt i estirat */
     text-align: center;
     margin: 0;
 }
@@ -157,7 +157,7 @@ html, body {
     color: var(--ink-black); /* Color negre */
     text-decoration: none; /* Treu el subratllat lleig per defecte */
     font-weight: 700;
-    font-size: 1.6rem; 
+    font-size: 1.3rem; 
     text-transform: uppercase; 
     letter-spacing: 5px; 
     border-bottom: 3px solid transparent;
@@ -228,7 +228,7 @@ html, body {
 
 .red-block-bottom {
     width: 100px;
-    height: 120px;
+    height: 180px;
     background-color: var(--deco-red);
     /* Hem eliminat el marge negatiu que el trencava */
 }

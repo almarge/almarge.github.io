@@ -1,4 +1,3 @@
-/* Forcem la càrrega de les fonts aquí perquè no falli el títol gegant */
 @import url('https://fonts.googleapis.com/css2?family=Six+Caps&family=Space+Grotesk:wght@500;700&display=swap');
 
 /* --- VARIABLES --- */
@@ -6,7 +5,7 @@
     --bg-cream: #E5E0D8;
     --ink-black: #111111;
     --deco-red: #A3281E;
-    --font-display: 'Six Caps', sans-serif; /* Lletra super estreta i alta */
+    --font-display: 'Six Caps', sans-serif;
     --font-meta: 'Space Grotesk', sans-serif;
 }
 
@@ -16,24 +15,22 @@
     box-sizing: border-box;
 }
 
-/* Ocupació total de la pantalla, sense espais sobrants */
+/* 1. Llenç complet, cap marge fosc ni scroll horitzontal */
 html, body {
     background-color: var(--bg-cream);
     color: var(--ink-black);
     font-family: var(--font-meta);
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; 
 }
 
-/* --- MARC ART DÉCO GLOBAL --- */
 .art-deco-frame {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
-    /* Això crea el marc negre enganxat als extrems de la pantalla */
-    border-left: 40px solid var(--ink-black);
-    border-right: 40px solid var(--ink-black);
     display: flex;
     flex-direction: column;
+    padding: 20px 4vw; /* Marge dinàmic que s'adapta a la pantalla */
 }
 
 .canvas {
@@ -43,8 +40,7 @@ html, body {
     flex-grow: 1; 
     border-left: 2px solid var(--ink-black);
     border-right: 2px solid var(--ink-black);
-    margin: 0 15px; /* Separació entre el marc gruixut i la línia fina */
-    padding: 20px 40px; 
+    padding: 0 4vw; 
 }
 
 /* --- CAPÇALERA EDITORIAL --- */
@@ -78,8 +74,8 @@ html, body {
     display: flex;
     justify-content: center;
     gap: 10px;
-    height: 80px; 
-    margin-top: -20px; 
+    height: 90px; 
+    margin-top: -23px; /* Puja exacte per tallar la línia negra superior */
 }
 
 .stripe-pattern {
@@ -98,16 +94,15 @@ html, body {
     background-color: var(--deco-red);
 }
 
-/* --- CONTINGUT CENTRAL (ALMARGE GEGANT) --- */
+/* --- CONTINGUT CENTRAL --- */
 .content-container {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Això centra el títol i els posts al mig de la pantalla */
+    justify-content: center; 
     align-items: center;
 }
 
-/* Titular a la portada */
 .hero-title-container {
     width: 100%;
     display: flex;
@@ -115,14 +110,15 @@ html, body {
     overflow: visible;
 }
 
+/* 2. ALMARGE Mida Massiva */
 .hero-title {
     font-family: var(--font-display);
-    /* La lletra creixerà dinàmicament segons l'amplada de la pantalla */
-    font-size: 28vw; 
-    line-height: 0.7;
+    font-size: clamp(10rem, 45vw, 600px); /* Molt més gran! */
+    line-height: 0.75;
+    letter-spacing: -2px; /* Les lletres més juntes */
     color: var(--ink-black);
     text-transform: uppercase;
-    transform: scaleY(1.8); /* L'estirem verticalment com el brutalisme mana */
+    transform: scaleY(2.2); /* Més alt i estirat */
     text-align: center;
     margin: 0;
 }
@@ -130,19 +126,19 @@ html, body {
 /* Llista de posts a la portada */
 .post-list {
     text-align: center;
-    margin-top: 8vh; /* Espaiat dinàmic perquè mai faci scroll */
+    margin-top: 10vh; 
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 20px; 
 }
 
 .post-link {
     color: var(--ink-black);
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.5rem; 
+    font-size: 1.6rem; 
     text-transform: uppercase; 
-    letter-spacing: 4px; 
+    letter-spacing: 5px; 
     border-bottom: 3px solid transparent;
     padding-bottom: 5px;
     transition: all 0.3s ease;
@@ -153,7 +149,7 @@ html, body {
     border-bottom: 3px solid var(--deco-red); 
 }
 
-/* Estils de text per als escrits interns (quan llegeixes un article) */
+/* Estils de text per als escrits (Markdown) */
 .content-container p {
     margin-bottom: 1.2rem;
     line-height: 1.6;
@@ -178,7 +174,7 @@ html, body {
     grid-template-columns: 1fr 2fr 1fr;
     align-items: flex-end;
     border-bottom: 3px solid var(--ink-black);
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .tagline-box {
@@ -188,11 +184,13 @@ html, body {
     letter-spacing: 1px;
 }
 
+/* 3. El bloc vermell perfectament centrat */
 .footer-center {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 20px; /* Això crea l'espai idèntic a dalt i a baix */
 }
 
 .horizontal-stripes {
@@ -211,7 +209,7 @@ html, body {
     width: 100px;
     height: 120px;
     background-color: var(--deco-red);
-    margin-bottom: -10px; /* Travessa la línia inferior */
+    /* Hem eliminat el marge negatiu que el trencava */
 }
 
 .footer-right {
@@ -231,11 +229,11 @@ html, body {
 /* --- SUB-CAPCIÓ INFERIOR --- */
 .bottom-bar {
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0 5px 0;
 }
 
 .sub-caption {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 8px;
 }
@@ -243,22 +241,21 @@ html, body {
 /* --- ADAPTACIÓ MÒBIL --- */
 @media (max-width: 768px) {
     .art-deco-frame {
-        border-left: 10px solid var(--ink-black);
-        border-right: 10px solid var(--ink-black);
+        padding: 10px;
     }
     .canvas {
-        margin: 0 5px;
         padding: 10px;
     }
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 20px;
     }
     .footer-right {
         align-items: center;
     }
     .hero-title {
-        font-size: 35vw;
-        transform: scaleY(1.3);
+        font-size: 40vw;
+        transform: scaleY(1.5);
     }
 }

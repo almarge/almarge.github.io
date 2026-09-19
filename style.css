@@ -2,15 +2,15 @@
 
 
 :root {
-  --paper: #f1ede2;
-  --black: #111111;
-  --red: #8d1f19;
+  --paper: #f1ede1;
+  --black: #101010;
+  --red: #8d211c;
 }
 
 
-/* ========================================
+/* ==================================================
    BASE
-   ======================================== */
+   ================================================== */
 
 * {
   box-sizing: border-box;
@@ -27,6 +27,8 @@ body {
 body {
   background: var(--black);
   color: var(--black);
+
+  overflow-x: hidden;
 }
 
 a {
@@ -35,9 +37,9 @@ a {
 }
 
 
-/* ========================================
+/* ==================================================
    PORTADA
-   ======================================== */
+   ================================================== */
 
 .cover {
   position: relative;
@@ -45,61 +47,86 @@ a {
   width: 100%;
   min-height: 100vh;
 
-  overflow: hidden;
-
-  background: var(--paper);
+  background: var(--black);
 
   padding:
-    48px
-    7vw
-    0;
+    0
+    4.7vw;
 }
 
 
-/* ========================================
-   BANDES NEGRES LATERALS
-   ======================================== */
+/* ==================================================
+   PANELL CREMA
+   ================================================== */
 
-.cover::before,
-.cover::after {
+.cover-panel {
+  position: relative;
+
+  width: 100%;
+
+  height: 94vh;
+  min-height: 680px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.10),
+      transparent 70%
+    ),
+    var(--paper);
+
+  overflow: hidden;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      100% 90%,
+      52% 100%,
+      0 90%
+    );
+}
+
+
+/* ==================================================
+   TEXTURA DE PAPER
+   ================================================== */
+
+.cover-panel::after {
   content: "";
 
   position: absolute;
 
-  top: 0;
-  bottom: 0;
+  inset: 0;
 
-  width: 4.5vw;
+  pointer-events: none;
 
-  background: var(--black);
+  opacity: 0.16;
 
-  z-index: 0;
-}
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.025) 0px,
+      rgba(0,0,0,0.025) 1px,
+      transparent 1px,
+      transparent 4px
+    );
 
-.cover::before {
-  left: 0;
-}
-
-.cover::after {
-  right: 0;
-}
-
-
-/* ========================================
-   CONTINGUT
-   ======================================== */
-
-.cover > * {
-  position: relative;
-  z-index: 2;
+  z-index: 20;
 }
 
 
-/* ========================================
+/* ==================================================
    CAPÇALERA
-   ======================================== */
+   ================================================== */
 
 .cover-top {
+  position: absolute;
+
+  top: 50px;
+  left: 2.1vw;
+  right: 2.1vw;
+
   display: grid;
 
   grid-template-columns:
@@ -109,19 +136,20 @@ a {
 
   align-items: start;
 
-  width: 100%;
+  border-top:
+    5px solid var(--black);
 
-  border-top: 5px solid var(--black);
+  padding-top: 18px;
 
-  padding-top: 17px;
+  z-index: 5;
 }
 
 
-/* ENLLAÇOS */
+/* ==================================================
+   NAVEGACIÓ
+   ================================================== */
 
 .nav-link {
-  display: block;
-
   width: max-content;
 
   font-family:
@@ -134,11 +162,12 @@ a {
 
   line-height: 1;
 
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
 
   padding-bottom: 9px;
 
-  border-bottom: 4px solid var(--black);
+  border-bottom:
+    4px solid var(--black);
 }
 
 .cover-top .nav-link:last-child {
@@ -146,53 +175,56 @@ a {
 }
 
 
-/* ========================================
-   MARCA CENTRAL
-   ======================================== */
+/* ==================================================
+   MARCA SUPERIOR
+   ================================================== */
 
 .top-mark {
   display: flex;
 
   align-items: flex-start;
+
   justify-content: center;
 
-  gap: 6px;
+  gap: 5px;
 
-  height: 84px;
+  height: 95px;
 }
 
 .top-mark span {
   display: block;
 
   width: 6px;
-  height: 84px;
+  height: 95px;
 
   background: var(--black);
 }
 
 .top-mark span.red {
-  width: 31px;
+  width: 32px;
 
   background: var(--red);
 }
 
 
-/* ========================================
-   TÍTOL PRINCIPAL
-   ======================================== */
+/* ==================================================
+   ALMARGE
+   ================================================== */
 
-.cover-title {
-  width: 100%;
+.hero {
+  position: absolute;
 
-  margin-top:
-    clamp(55px, 9vh, 100px);
+  left: 2.1vw;
+  right: 2.1vw;
+
+  top: 16.5vh;
 
   overflow: visible;
+
+  z-index: 3;
 }
 
-.cover-title h1 {
-  width: max-content;
-
+.hero h1 {
   margin: 0;
 
   font-family:
@@ -201,52 +233,60 @@ a {
     sans-serif;
 
   font-size:
-    clamp(150px, 20.8vw, 370px);
+    clamp(150px, 21vw, 365px);
 
   font-weight: 700;
 
-  line-height: 0.68;
+  line-height: 0.72;
 
-  letter-spacing: -0.065em;
+  letter-spacing:
+    -0.075em;
 
   white-space: nowrap;
 
   transform:
-    scaleX(0.91);
+    scaleX(0.92);
 
   transform-origin:
     left center;
 }
 
 
-/* ========================================
-   FRANJA CENTRAL
-   ======================================== */
+/* ==================================================
+   INFORMACIÓ INFERIOR
+   ================================================== */
 
-.cover-middle {
+.information {
+  position: absolute;
+
+  left: 2.1vw;
+  right: 2.1vw;
+
+  top: 72.5vh;
+
   display: grid;
 
   grid-template-columns:
-    130px
+    125px
     1fr
-    130px;
+    125px;
 
   align-items: center;
 
-  width: 100%;
-
-  margin-top:
-    clamp(75px, 10vh, 115px);
+  border-top:
+    5px solid var(--black);
 
   padding-top: 17px;
 
-  border-top: 5px solid var(--black);
+  z-index: 5;
 }
 
 
-/* TEXT ESQUERRA */
+/* ==================================================
+   DESCRIPCIÓ
+   ================================================== */
 
-.side-label {
+.description {
   font-family:
     "DM Mono",
     monospace;
@@ -259,11 +299,11 @@ a {
 }
 
 
-/* ========================================
-   LÍNIES
-   ======================================== */
+/* ==================================================
+   SISTEMA DE LÍNIES
+   ================================================== */
 
-.horizontal-lines {
+.line-system {
   display: flex;
 
   flex-direction: column;
@@ -271,10 +311,10 @@ a {
   gap: 5px;
 
   padding:
-    0 55px;
+    0 42px;
 }
 
-.horizontal-lines span {
+.line-system span {
   display: block;
 
   width: 100%;
@@ -285,9 +325,9 @@ a {
 }
 
 
-/* ========================================
+/* ==================================================
    NÚMERO
-   ======================================== */
+   ================================================== */
 
 .issue {
   display: flex;
@@ -312,68 +352,68 @@ a {
 
   padding-bottom: 5px;
 
-  border-bottom: 3px solid var(--black);
+  border-bottom:
+    3px solid var(--black);
 }
 
 
-/* ========================================
-   ZONA NEGRA INFERIOR
-   ======================================== */
+/* ==================================================
+   BLOC ROIG INFERIOR
+   ================================================== */
 
-.cover-bottom {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 24vh;
-
-  min-height: 170px;
-
-  background: var(--black);
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content: center;
-}
-
-
-/* ========================================
-   BLOC ROIG
-   ======================================== */
-
-.red-block {
+.red-bottom {
   position: absolute;
 
   left: 50%;
-  bottom: 0;
 
-  width: 110px;
+  bottom: -2px;
 
-  height: 25vh;
+  width: 108px;
 
-  min-height: 190px;
+  height: 230px;
 
   transform:
     translateX(-50%);
 
   background: var(--red);
+
+  z-index: 6;
 }
 
 
-/* ========================================
+/* ==================================================
+   ZONA NEGRA INFERIOR
+   ================================================== */
+
+.bottom-black {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 87vh;
+
+  height: 13vh;
+
+  background: var(--black);
+
+  z-index: 2;
+}
+
+
+/* ==================================================
    TEXT INFERIOR
-   ======================================== */
+   ================================================== */
 
 .bottom-title {
-  position: relative;
+  position: absolute;
 
-  z-index: 5;
+  left: 50%;
 
-  margin-bottom: 17px;
+  bottom: 18px;
+
+  transform:
+    translateX(-50%);
 
   color: var(--paper);
 
@@ -383,8 +423,6 @@ a {
 
   font-size: 11px;
 
-  font-weight: 400;
-
   letter-spacing: 0.42em;
 
   text-indent: 0.42em;
@@ -393,66 +431,94 @@ a {
 }
 
 
-/* ========================================
+/* ==================================================
+   BANDES ROIGUES LATERALS
+   ================================================== */
+
+.side-red {
+  position: fixed;
+
+  top: 40vh;
+
+  width: 4.7vw;
+
+  height: 23px;
+
+  background: var(--red);
+
+  z-index: 1;
+}
+
+.side-red-left {
+  left: 0;
+}
+
+.side-red-right {
+  right: 0;
+}
+
+
+/* ==================================================
    TABLET
-   ======================================== */
+   ================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-  .cover {
-    padding:
-      36px
-      6vw
-      0;
+  .cover-panel {
+    min-height: 620px;
   }
 
-  .cover-title h1 {
+  .hero h1 {
     font-size: 21vw;
   }
 
-  .cover-middle {
+  .information {
     grid-template-columns:
-      110px
+      105px
       1fr
-      110px;
+      105px;
   }
 
-  .horizontal-lines {
+  .line-system {
     padding:
-      0 30px;
+      0 25px;
   }
 }
 
 
-/* ========================================
+/* ==================================================
    MÒBIL
-   ======================================== */
+   ================================================== */
 
 @media (max-width: 700px) {
 
   .cover {
-    min-height: 100svh;
-
-    padding:
-      25px
-      20px
-      0;
+    padding: 0;
   }
 
 
-  .cover::before,
-  .cover::after {
-    display: none;
+  .cover-panel {
+    width: 100%;
+
+    height: 94svh;
+    min-height: 580px;
+
+    clip-path:
+      polygon(
+        0 0,
+        100% 0,
+        100% 90%,
+        52% 100%,
+        0 90%
+      );
   }
 
-
-  /* CAPÇALERA */
 
   .cover-top {
-    grid-template-columns:
-      1fr
-      auto
-      1fr;
+    top: 25px;
+
+    left: 20px;
+    right: 20px;
 
     border-top-width: 3px;
 
@@ -465,16 +531,14 @@ a {
 
     letter-spacing: 0.12em;
 
-    padding-bottom: 6px;
-
     border-bottom-width: 3px;
+
+    padding-bottom: 6px;
   }
 
 
-  /* MARCA */
-
   .top-mark {
-    height: 54px;
+    height: 55px;
 
     gap: 3px;
   }
@@ -482,7 +546,7 @@ a {
   .top-mark span {
     width: 3px;
 
-    height: 54px;
+    height: 55px;
   }
 
   .top-mark span.red {
@@ -490,61 +554,65 @@ a {
   }
 
 
-  /* TÍTOL */
+  .hero {
+    left: 20px;
+    right: 20px;
 
-  .cover-title {
-    margin-top: 78px;
+    top: 25vh;
   }
 
-  .cover-title h1 {
-    font-size: 25vw;
 
-    line-height: 0.7;
+  .hero h1 {
+    font-size: 24vw;
 
-    letter-spacing: -0.065em;
+    line-height: 0.72;
+
+    letter-spacing:
+      -0.065em;
 
     transform:
-      scaleX(0.93);
+      scaleX(0.92);
   }
 
 
-  /* FRANJA */
+  .information {
+    left: 20px;
+    right: 20px;
 
-  .cover-middle {
+    top: 70vh;
+
     grid-template-columns:
-      78px
+      75px
       1fr
-      67px;
-
-    margin-top: 68px;
-
-    padding-top: 12px;
+      65px;
 
     border-top-width: 3px;
+
+    padding-top: 11px;
   }
 
 
-  .side-label {
-    font-size: 7.5px;
+  .description {
+    font-size: 7px;
 
     line-height: 1.5;
   }
 
 
-  .horizontal-lines {
+  .line-system {
     gap: 3px;
 
     padding:
-      0 13px;
+      0 10px;
   }
 
-  .horizontal-lines span {
+  .line-system span {
     height: 2px;
   }
 
 
   .issue {
-    font-size: 7.5px;
+    font-size: 7px;
 
     line-height: 1.7;
   }
@@ -552,74 +620,40 @@ a {
   .issue strong {
     border-bottom-width: 2px;
 
-    padding-bottom: 4px;
+    padding-bottom: 3px;
   }
 
 
-  /* NEGRO */
+  .red-bottom {
+    width: 65px;
 
-  .cover-bottom {
-    height: 21vh;
-
-    min-height: 140px;
+    height: 175px;
   }
 
 
-  /* ROIG */
+  .bottom-black {
+    top: 87vh;
 
-  .red-block {
-    width: 67px;
-
-    height: 23vh;
-
-    min-height: 155px;
+    height: 13vh;
   }
 
-
-  /* TEXT */
 
   .bottom-title {
-    margin-bottom: 13px;
+    bottom: 12px;
 
-    font-size: 7.5px;
-
-    letter-spacing: 0.26em;
-
-    text-indent: 0.26em;
-  }
-}
-
-
-/* ========================================
-   PANTALLES MOLT PETITES
-   ======================================== */
-
-@media (max-width: 390px) {
-
-  .cover-title {
-    margin-top: 67px;
-  }
-
-  .cover-title h1 {
-    font-size: 24vw;
-  }
-
-  .cover-middle {
-    grid-template-columns:
-      68px
-      1fr
-      58px;
-
-    margin-top: 57px;
-  }
-
-  .horizontal-lines {
-    padding:
-      0 8px;
-  }
-
-  .side-label,
-  .issue {
     font-size: 7px;
+
+    letter-spacing: 0.25em;
+
+    text-indent: 0.25em;
+  }
+
+
+  .side-red {
+    top: 40vh;
+
+    height: 14px;
+
+    width: 20px;
   }
 }

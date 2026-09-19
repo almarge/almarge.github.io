@@ -1,7 +1,8 @@
-
 ---
-La desgràcia del dol
+layout: default
+title: "La desgràcia del dol"
 ---
+# La desgràcia del dol
 
 La gent parla del dol com si fos una emoció més, com la ràbia o la tristesa; com si pertanyés a la mateixa categoria que un mal dia a la feina o una discussió amb algú estimat. Es tracta com una fase, com un trànsit del qual entres i surts, com si, a l’altra banda, haguessis de ser la mateixa persona que eres abans. Però el dol no és això.
 

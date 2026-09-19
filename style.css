@@ -5,11 +5,12 @@
   --paper: #f2eee4;
   --black: #111111;
   --red: #8b211b;
-  --line: #111111;
 }
 
 
-/* RESET */
+/* =========================
+   RESET
+   ========================= */
 
 * {
   box-sizing: border-box;
@@ -27,48 +28,101 @@ body {
   color: var(--black);
 }
 
-
-/* LINKS */
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
 
-/* MAIN COVER */
+/* =========================
+   PORTADA
+   ========================= */
 
 .cover {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+
   background: var(--paper);
+
   padding: 42px 5.5vw 0;
 }
 
 
-/* TOP */
+/* =========================
+   BANDES LATERALS
+   ========================= */
+
+.cover::before,
+.cover::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 5.5vw;
+
+  background: var(--black);
+
+  z-index: 0;
+}
+
+.cover::before {
+  left: 0;
+}
+
+.cover::after {
+  right: 0;
+}
+
+
+/* =========================
+   CONTINGUT
+   ========================= */
+
+.cover > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   CAPÇALERA
+   ========================= */
 
 .cover-top {
   position: relative;
+
   display: grid;
   grid-template-columns: 1fr auto 1fr;
+
   align-items: start;
+
   gap: 30px;
+
   border-top: 5px solid var(--black);
+
   padding-top: 18px;
 }
 
+
+/* ENLLAÇOS */
+
 .nav-link {
   display: inline-block;
+
   width: max-content;
 
   font-family: "DM Mono", monospace;
+
   font-size: 13px;
   font-weight: 500;
+
   letter-spacing: 0.16em;
 
   border-bottom: 4px solid var(--black);
+
   padding-bottom: 8px;
 
   transition:
@@ -86,12 +140,16 @@ a {
 }
 
 
-/* CENTRAL MARK */
+/* =========================
+   SÍMBOL SUPERIOR
+   ========================= */
 
 .top-mark {
   display: flex;
+
   align-items: flex-start;
   justify-content: center;
+
   gap: 6px;
 
   height: 82px;
@@ -99,115 +157,174 @@ a {
 
 .top-mark span {
   display: block;
+
   width: 6px;
   height: 82px;
+
   background: var(--black);
 }
 
 .top-mark span.red {
   width: 30px;
+
   background: var(--red);
 }
 
 
-/* TITLE */
+/* =========================
+   ALMARGE
+   ========================= */
 
 .cover-title {
   margin-top: clamp(50px, 8vh, 100px);
+
   overflow: hidden;
 }
 
 .cover-title h1 {
   margin: 0;
 
-  font-family: "Archivo Narrow", Impact, sans-serif;
+  font-family:
+    "Archivo Narrow",
+    Impact,
+    sans-serif;
+
   font-size: clamp(115px, 22vw, 360px);
+
   font-weight: 700;
+
   line-height: 0.72;
+
   letter-spacing: -0.075em;
+
   white-space: nowrap;
 
   transform: scaleX(0.88);
+
   transform-origin: left center;
 }
 
 
-/* MIDDLE */
+/* =========================
+   INFORMACIÓ CENTRAL
+   ========================= */
 
 .cover-middle {
   display: grid;
-  grid-template-columns: 120px 1fr 120px;
+
+  grid-template-columns:
+    120px
+    1fr
+    120px;
+
   align-items: center;
 
   margin-top: clamp(55px, 9vh, 105px);
+
   padding-top: 17px;
 
   border-top: 5px solid var(--black);
 }
 
+
+/* TEXT LATERAL */
+
 .side-label {
   font-family: "DM Mono", monospace;
+
   font-size: 11px;
+
   line-height: 1.45;
+
   letter-spacing: 0.08em;
 }
 
+
+/* LÍNIES */
+
 .horizontal-lines {
   display: flex;
+
   flex-direction: column;
+
   gap: 5px;
+
   padding: 0 45px;
 }
 
 .horizontal-lines span {
   display: block;
+
   height: 4px;
+
   background: var(--black);
 }
 
+
+/* NÚMERO */
+
 .issue {
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-end;
 
   font-family: "DM Mono", monospace;
+
   font-size: 12px;
+
   line-height: 1.7;
+
   letter-spacing: 0.12em;
 }
 
 .issue strong {
   font-weight: 500;
+
   border-bottom: 3px solid var(--black);
+
   padding-bottom: 5px;
 }
 
 
-/* BOTTOM */
+/* =========================
+   PART INFERIOR
+   ========================= */
 
 .cover-bottom {
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: 0;
 
   height: 23vh;
+
   min-height: 150px;
 
   background: var(--black);
 
   display: flex;
+
   justify-content: center;
+
   align-items: flex-end;
 }
 
+
+/* BLOC ROIG */
+
 .red-block {
   position: absolute;
+
   left: 50%;
   bottom: 0;
 
   width: 108px;
+
   height: 24vh;
+
   min-height: 175px;
 
   transform: translateX(-50%);
@@ -215,8 +332,12 @@ a {
   background: var(--red);
 }
 
+
+/* TEXT INFERIOR */
+
 .bottom-title {
   position: relative;
+
   z-index: 2;
 
   margin-bottom: 19px;
@@ -224,51 +345,24 @@ a {
   color: var(--paper);
 
   font-family: "DM Mono", monospace;
+
   font-size: 12px;
+
   letter-spacing: 0.42em;
+
   text-indent: 0.42em;
 }
 
 
-/* DESKTOP SIDE BARS */
-
-.cover::before,
-.cover::after {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-
-  width: 5.5vw;
-
-  background: var(--black);
-  z-index: 0;
-}
-
-.cover::before {
-  left: 0;
-}
-
-.cover::after {
-  right: 0;
-}
-
-
-/* KEEP CONTENT ABOVE SIDE BARS */
-
-.cover > * {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* MOBILE */
+/* =========================
+   MÒBIL
+   ========================= */
 
 @media (max-width: 700px) {
 
   .cover {
     min-height: 100svh;
+
     padding: 24px 20px 0;
   }
 
@@ -277,27 +371,41 @@ a {
     display: none;
   }
 
+
   .cover-top {
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns:
+      1fr
+      auto
+      1fr;
+
     border-top-width: 3px;
+
     padding-top: 13px;
+
     gap: 12px;
   }
 
+
   .nav-link {
     font-size: 9px;
+
     letter-spacing: 0.12em;
+
     border-bottom-width: 3px;
+
     padding-bottom: 6px;
   }
 
+
   .top-mark {
     height: 52px;
+
     gap: 3px;
   }
 
   .top-mark span {
     width: 3px;
+
     height: 52px;
   }
 
@@ -305,33 +413,46 @@ a {
     width: 18px;
   }
 
+
   .cover-title {
     margin-top: 75px;
   }
 
   .cover-title h1 {
     font-size: 25vw;
+
     line-height: 0.74;
+
     letter-spacing: -0.07em;
+
     transform: scaleX(0.91);
   }
 
+
   .cover-middle {
-    grid-template-columns: 80px 1fr 70px;
+    grid-template-columns:
+      80px
+      1fr
+      70px;
 
     margin-top: 65px;
+
     padding-top: 12px;
 
     border-top-width: 3px;
   }
 
+
   .side-label {
     font-size: 8px;
+
     line-height: 1.5;
   }
 
+
   .horizontal-lines {
     padding: 0 15px;
+
     gap: 3px;
   }
 
@@ -339,8 +460,10 @@ a {
     height: 2px;
   }
 
+
   .issue {
     font-size: 8px;
+
     line-height: 1.7;
   }
 
@@ -348,27 +471,38 @@ a {
     border-bottom-width: 2px;
   }
 
+
   .cover-bottom {
     height: 20vh;
+
     min-height: 135px;
   }
 
+
   .red-block {
     width: 65px;
+
     height: 22vh;
+
     min-height: 150px;
   }
 
+
   .bottom-title {
     margin-bottom: 14px;
+
     font-size: 8px;
+
     letter-spacing: 0.25em;
+
     text-indent: 0.25em;
   }
 }
 
 
-/* VERY SMALL SCREENS */
+/* =========================
+   PANTALLES MOLT PETITES
+   ========================= */
 
 @media (max-width: 390px) {
 
@@ -381,7 +515,11 @@ a {
   }
 
   .cover-middle {
-    grid-template-columns: 70px 1fr 60px;
+    grid-template-columns:
+      70px
+      1fr
+      60px;
+
     margin-top: 55px;
   }
 
@@ -396,761 +534,4 @@ a {
   .issue {
     font-size: 7px;
   }
-}  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: -0.025em;
-  color: var(--accent);
-
-  transition: color 0.25s ease;
-}
-
-
-.brand:hover {
-  color: var(--accent-hover);
-}
-
-
-nav {
-  display: flex;
-  gap: 26px;
-}
-
-
-nav a,
-.section-label,
-.date,
-.read,
-.back,
-footer {
-  font-family: "DM Mono", monospace;
-  text-transform: lowercase;
-}
-
-
-nav a {
-  font-size: 0.67rem;
-  text-decoration: none;
-
-  transition: color 0.25s ease;
-}
-
-
-nav a:hover {
-  color: var(--accent-hover);
-}
-
-
-main {
-  width: min(var(--max), calc(100% - 72px));
-  margin: 0 auto;
-}
-
-
-/* =========================
-   PORTADA
-   ========================= */
-
-.intro {
-  min-height: 650px;
-
-  position: relative;
-
-  padding: 105px 0 125px;
-
-  display: flex;
-  align-items: center;
-}
-
-
-.intro h1 {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-  margin: 0;
-
-  font-size: clamp(3.2rem, 6vw, 6.2rem);
-  line-height: 0.98;
-  font-weight: 400;
-
-  letter-spacing: -0.065em;
-
-  animation: intro-in 0.8s ease both;
-}
-
-
-.intro h1 span {
-  display: block;
-}
-
-
-/*
-   Primera peça.
-   No ocupa tota l'amplada.
-*/
-
-.intro h1 .line-1 {
-  width: max-content;
-  max-width: 90%;
-}
-
-
-/*
-   Segona peça.
-   Es desplaça cap a la dreta.
-*/
-
-.intro h1 .line-2 {
-  width: max-content;
-  max-width: 80%;
-
-  margin-left: 8.5%;
-  margin-top: 0.02em;
-}
-
-
-/*
-   Tercera peça.
-   Més petita i separada.
-*/
-
-.intro h1 .line-3 {
-  width: max-content;
-
-  margin-left: 30%;
-  margin-top: 0.38em;
-
-  font-size: 0.46em;
-  line-height: 1.18;
-
-  letter-spacing: -0.035em;
-
-  color: var(--text);
-}
-
-
-/*
-   Última frase.
-   Aquesta és la peça de color.
-*/
-
-.intro h1 .line-4 {
-  width: max-content;
-
-  margin-left: 43%;
-  margin-top: 0.35em;
-
-  font-size: 0.32em;
-  line-height: 1.2;
-
-  letter-spacing: -0.025em;
-
-  color: var(--accent);
-  font-style: italic;
-}
-
-
-/* =========================
-   FORMES
-   ========================= */
-
-/*
-   La gràcia és que no semblin decoració.
-   Són elements de composició.
-*/
-
-.intro-shape-one {
-  position: absolute;
-
-  width: 118px;
-  height: 118px;
-
-  right: 7%;
-  top: 92px;
-
-  border: 1px solid var(--accent);
-
-  opacity: 0.72;
-}
-
-
-.intro-shape-two {
-  position: absolute;
-
-  width: 25px;
-  height: 25px;
-
-  right: 19%;
-  bottom: 145px;
-
-  background: var(--signal);
-}
-
-
-.intro-line {
-  position: absolute;
-
-  width: 1px;
-  height: 225px;
-
-  left: 2%;
-  top: 105px;
-
-  background: var(--accent);
-
-  opacity: 0.75;
-}
-
-
-.intro-line::after {
-  content: "";
-
-  position: absolute;
-
-  width: 95px;
-  height: 1px;
-
-  left: 0;
-  bottom: 0;
-
-  background: var(--earth);
-
-  transform: translateX(-12px);
-}
-
-
-/* =========================
-   ANIMACIÓ
-   ========================= */
-
-@keyframes intro-in {
-
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-
-/* =========================
-   ESCRITS
-   ========================= */
-
-.writing {
-  padding: 0 0 155px;
-}
-
-
-.section-head {
-  position: relative;
-
-  padding-bottom: 17px;
-
-  border-bottom: 1px solid var(--line);
-}
-
-
-.section-label {
-  font-size: 0.61rem;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-}
-
-
-/*
-   Cada escrit respira.
-*/
-
-.writing-item {
-  position: relative;
-
-  display: grid;
-
-  grid-template-columns: 105px minmax(0, 690px);
-
-  column-gap: 42px;
-
-  padding: 46px 0 52px;
-
-  border-bottom: 1px solid var(--line);
-}
-
-
-/*
-   Petita irregularitat compositiva.
-*/
-
-.writing-item:nth-child(3n) {
-  padding-left: 5%;
-}
-
-
-.writing-item:nth-child(4n) {
-  padding-left: 2%;
-}
-
-
-.writing-item:nth-child(5n) {
-  padding-left: 8%;
-}
-
-
-/* dates */
-
-.date {
-  padding-top: 8px;
-
-  font-size: 0.61rem;
-
-  color: var(--earth);
-
-  white-space: nowrap;
-}
-
-
-.writing-item:nth-child(3n) .date {
-  transform: translateY(3px);
-}
-
-
-.writing-item:nth-child(5n) .date {
-  transform: translateX(-5px);
-}
-
-
-/* contingut */
-
-.writing-content {
-  max-width: var(--reading);
-}
-
-
-.writing-content h2 {
-  margin: 0 0 15px;
-
-  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
-
-  line-height: 1.12;
-
-  font-weight: 400;
-
-  letter-spacing: -0.045em;
-}
-
-
-.writing-content h2 a {
-  text-decoration: none;
-
-  transition:
-    color 0.25s ease,
-    text-decoration-color 0.25s ease;
-}
-
-
-.writing-content h2 a:hover {
-  color: var(--accent);
-
-  text-decoration: underline;
-
-  text-decoration-thickness: 1px;
-  text-underline-offset: 7px;
-
-  text-decoration-color: var(--accent);
-}
-
-
-.writing-content p {
-  margin: 0 0 22px;
-
-  max-width: 620px;
-
-  color: #5C5750;
-
-  font-size: 0.94rem;
-
-  line-height: 1.75;
-}
-
-
-.read {
-  font-size: 0.61rem;
-
-  letter-spacing: 0.04em;
-
-  text-decoration: none;
-
-  color: var(--accent);
-
-  transition: color 0.25s ease;
-}
-
-
-.read:hover {
-  color: var(--accent-hover);
-}
-
-
-/* =========================
-   SOBRE
-   ========================= */
-
-.about {
-  max-width: 720px;
-
-  padding: 0 0 155px;
-
-  margin-left: 0;
-}
-
-
-.about .section-label {
-  margin-bottom: 25px;
-}
-
-
-.about p {
-  margin: 0;
-
-  max-width: 420px;
-
-  font-size: 1.08rem;
-
-  line-height: 1.8;
-}
-
-
-/* =========================
-   FOOTER
-   ========================= */
-
-footer {
-  width: min(var(--max), calc(100% - 72px));
-
-  margin: 0 auto;
-
-  padding: 22px 0 32px;
-
-  border-top: 1px solid var(--line);
-
-  display: flex;
-  justify-content: space-between;
-
-  gap: 20px;
-
-  color: var(--muted);
-
-  font-size: 0.57rem;
-}
-
-
-/* =========================
-   ARTICLE
-   ========================= */
-
-.full-article {
-  padding: 86px 0 150px;
-}
-
-
-.article-top {
-  width: min(var(--reading), 100%);
-
-  margin: 0 auto 76px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
-}
-
-
-.article-top .date {
-  font-size: 0.61rem;
-  color: var(--earth);
-}
-
-
-.back {
-  font-size: 0.61rem;
-
-  text-decoration: none;
-
-  transition: color 0.25s ease;
-}
-
-
-.back:hover {
-  color: var(--accent-hover);
-}
-
-
-.full-article h1 {
-  width: min(var(--reading), 100%);
-
-  margin: 0 auto 70px;
-
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
-
-  line-height: 1;
-
-  font-weight: 400;
-
-  letter-spacing: -0.06em;
-}
-
-
-.article-body {
-  width: min(var(--reading), 100%);
-
-  margin: 0 auto;
-}
-
-
-.article-body p {
-  margin: 0 0 1.65em;
-
-  font-size: 1.04rem;
-
-  line-height: 1.95;
-}
-
-
-.article-body hr {
-  width: 34%;
-
-  margin: 72px 0;
-
-  border: 0;
-
-  border-top: 1px solid var(--line);
-}
-
-
-/* =========================
-   MOBIL
-   ========================= */
-
-@media (max-width: 700px) {
-
-  .site-header,
-  main,
-  footer {
-    width: min(100% - 36px, var(--max));
-  }
-
-
-  .site-header {
-    padding-top: 22px;
-    padding-bottom: 20px;
-  }
-
-
-  nav {
-    gap: 17px;
-  }
-
-
-  /* PORTADA */
-
-  .intro {
-    min-height: 560px;
-
-    padding: 70px 0 100px;
-
-    align-items: center;
-  }
-
-
-  .intro h1 {
-    font-size: clamp(2.55rem, 11.5vw, 4.4rem);
-
-    line-height: 1;
-
-    letter-spacing: -0.06em;
-  }
-
-
-  .intro h1 .line-1 {
-    max-width: 100%;
-  }
-
-
-  .intro h1 .line-2 {
-    max-width: 100%;
-
-    margin-left: 7%;
-
-    margin-top: 0.08em;
-  }
-
-
-  .intro h1 .line-3 {
-    max-width: 80%;
-
-    margin-left: 18%;
-
-    margin-top: 0.6em;
-
-    font-size: 0.47em;
-  }
-
-
-  .intro h1 .line-4 {
-    margin-left: 31%;
-
-    margin-top: 0.4em;
-
-    font-size: 0.34em;
-  }
-
-
-  .intro-shape-one {
-    width: 65px;
-    height: 65px;
-
-    right: 3%;
-    top: 75px;
-  }
-
-
-  .intro-shape-two {
-    width: 18px;
-    height: 18px;
-
-    right: 11%;
-    bottom: 110px;
-  }
-
-
-  .intro-line {
-    left: 1%;
-    top: 85px;
-
-    height: 145px;
-  }
-
-
-  .intro-line::after {
-    width: 55px;
-  }
-
-
-  /* ESCRITS */
-
-  .writing {
-    padding-bottom: 100px;
-  }
-
-
-  .writing-item,
-  .writing-item:nth-child(3n),
-  .writing-item:nth-child(4n),
-  .writing-item:nth-child(5n) {
-    display: block;
-
-    padding: 32px 0 40px;
-  }
-
-
-  .date,
-  .writing-item:nth-child(3n) .date,
-  .writing-item:nth-child(5n) .date {
-    padding-top: 0;
-
-    margin-bottom: 13px;
-
-    transform: none;
-  }
-
-
-  .writing-content {
-    max-width: 100%;
-  }
-
-
-  .writing-content p {
-    font-size: 0.9rem;
-  }
-
-
-  /* SOBRE */
-
-  .about {
-    padding-bottom: 100px;
-  }
-
-
-  .about p {
-    max-width: 350px;
-
-    font-size: 1rem;
-  }
-
-
-  /* ARTICLE */
-
-  .full-article {
-    padding: 55px 0 100px;
-  }
-
-
-  .article-top {
-    margin-bottom: 55px;
-  }
-
-
-  .full-article h1 {
-    margin-bottom: 52px;
-
-    font-size: clamp(2.7rem, 13vw, 4.2rem);
-  }
-
-
-  .article-body p {
-    font-size: 0.98rem;
-
-    line-height: 1.85;
-  }
-
-
-  /* FOOTER */
-
-  footer {
-    padding-bottom: 25px;
-  }
-
-}
-
-
-/* =========================
-   ACCESSIBILITAT
-   ========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-
-  .intro h1 {
-    animation: none;
-  }
-
-
-  .brand,
-  nav a,
-  .read,
-  .back,
-  .writing-content h2 a {
-    transition: none;
-  }
-
 }

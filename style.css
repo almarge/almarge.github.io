@@ -1,25 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+
 :root {
   --bg: #F4F1E9;
   --text: #282620;
   --muted: #706B63;
   --line: #DDD7CC;
+
   --accent: #304B40;
   --accent-hover: #60776A;
-  --earth: #94765A;
 
-  --max: 1100px;
+  --earth: #94765A;
+  --signal: #9A4036;
+
+  --max: 1060px;
   --reading: 690px;
 }
+
 
 * {
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
 }
+
 
 body {
   margin: 0;
@@ -28,6 +35,7 @@ body {
   font-family: "Libre Baskerville", Georgia, serif;
   -webkit-font-smoothing: antialiased;
 }
+
 
 a {
   color: inherit;
@@ -41,7 +49,8 @@ a {
 .site-header {
   width: min(var(--max), calc(100% - 72px));
   margin: 0 auto;
-  padding: 30px 0 25px;
+
+  padding: 28px 0 24px;
 
   display: flex;
   align-items: center;
@@ -50,23 +59,27 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
+
 .brand {
   text-decoration: none;
   font-size: 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--accent);
 
   transition: color 0.25s ease;
 }
 
+
 .brand:hover {
   color: var(--accent-hover);
 }
+
 
 nav {
   display: flex;
   gap: 26px;
 }
+
 
 nav a,
 .section-label,
@@ -78,23 +91,19 @@ footer {
   text-transform: lowercase;
 }
 
+
 nav a {
-  font-size: 0.68rem;
+  font-size: 0.67rem;
   text-decoration: none;
 
   transition: color 0.25s ease;
 }
 
-nav a:hover,
-.read:hover,
-.back:hover {
+
+nav a:hover {
   color: var(--accent-hover);
 }
 
-
-/* =========================
-   CONTENIDOR GENERAL
-   ========================= */
 
 main {
   width: min(var(--max), calc(100% - 72px));
@@ -107,69 +116,97 @@ main {
    ========================= */
 
 .intro {
-  min-height: 610px;
+  min-height: 650px;
+
+  position: relative;
+
+  padding: 105px 0 125px;
 
   display: flex;
   align-items: center;
+}
 
-  padding: 80px 0 120px;
 
+.intro h1 {
   position: relative;
+  z-index: 2;
+
+  width: 100%;
+  margin: 0;
+
+  font-size: clamp(3.2rem, 6vw, 6.2rem);
+  line-height: 0.98;
+  font-weight: 400;
+
+  letter-spacing: -0.065em;
 
   animation: intro-in 0.8s ease both;
 }
 
-.intro h1 {
-  margin: 0;
-
-  width: 100%;
-  max-width: 1050px;
-
-  font-size: clamp(3.2rem, 6.1vw, 6.4rem);
-  line-height: 0.99;
-
-  font-weight: 400;
-  letter-spacing: -0.065em;
-}
-
-
-/*
-   Si l'HTML utilitza tres <span>,
-   cada frase pot respirar pel seu compte.
-*/
 
 .intro h1 span {
   display: block;
 }
 
 
-/* Primera frase */
+/*
+   Primera peça.
+   No ocupa tota l'amplada.
+*/
 
 .intro h1 .line-1 {
-  max-width: 900px;
+  width: max-content;
+  max-width: 90%;
 }
 
 
-/* Segona frase */
+/*
+   Segona peça.
+   Es desplaça cap a la dreta.
+*/
 
 .intro h1 .line-2 {
-  max-width: 760px;
+  width: max-content;
+  max-width: 80%;
 
-  margin-top: 0.10em;
-  margin-left: 0.55em;
+  margin-left: 8.5%;
+  margin-top: 0.02em;
 }
 
 
-/* Última frase */
+/*
+   Tercera peça.
+   Més petita i separada.
+*/
 
 .intro h1 .line-3 {
-  max-width: 520px;
+  width: max-content;
 
-  margin-top: 0.42em;
-  margin-left: 1.15em;
+  margin-left: 30%;
+  margin-top: 0.38em;
 
-  font-size: 0.43em;
-  line-height: 1.3;
+  font-size: 0.46em;
+  line-height: 1.18;
+
+  letter-spacing: -0.035em;
+
+  color: var(--text);
+}
+
+
+/*
+   Última frase.
+   Aquesta és la peça de color.
+*/
+
+.intro h1 .line-4 {
+  width: max-content;
+
+  margin-left: 43%;
+  margin-top: 0.35em;
+
+  font-size: 0.32em;
+  line-height: 1.2;
 
   letter-spacing: -0.025em;
 
@@ -178,28 +215,91 @@ main {
 }
 
 
+/* =========================
+   FORMES
+   ========================= */
+
 /*
-   Si el lema encara utilitza <em>
-   sense els spans, també el tractem bé.
+   La gràcia és que no semblin decoració.
+   Són elements de composició.
 */
 
-.intro h1 em {
-  color: var(--accent);
-  font-style: italic;
-  font-weight: 400;
+.intro-shape-one {
+  position: absolute;
+
+  width: 118px;
+  height: 118px;
+
+  right: 7%;
+  top: 92px;
+
+  border: 1px solid var(--accent);
+
+  opacity: 0.72;
 }
 
 
+.intro-shape-two {
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  right: 19%;
+  bottom: 145px;
+
+  background: var(--signal);
+}
+
+
+.intro-line {
+  position: absolute;
+
+  width: 1px;
+  height: 225px;
+
+  left: 2%;
+  top: 105px;
+
+  background: var(--accent);
+
+  opacity: 0.75;
+}
+
+
+.intro-line::after {
+  content: "";
+
+  position: absolute;
+
+  width: 95px;
+  height: 1px;
+
+  left: 0;
+  bottom: 0;
+
+  background: var(--earth);
+
+  transform: translateX(-12px);
+}
+
+
+/* =========================
+   ANIMACIÓ
+   ========================= */
+
 @keyframes intro-in {
+
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
 
 
@@ -208,31 +308,38 @@ main {
    ========================= */
 
 .writing {
-  padding: 0 0 170px;
+  padding: 0 0 155px;
 }
 
+
 .section-head {
+  position: relative;
+
   padding-bottom: 17px;
 
   border-bottom: 1px solid var(--line);
 }
 
+
 .section-label {
-  font-size: 0.62rem;
+  font-size: 0.61rem;
   letter-spacing: 0.08em;
   color: var(--accent);
 }
 
 
 /*
-   Els escrits no ocupen una caixa rígida.
+   Cada escrit respira.
 */
 
 .writing-item {
-  display: grid;
-  grid-template-columns: 105px minmax(0, 1fr);
+  position: relative;
 
-  gap: 54px;
+  display: grid;
+
+  grid-template-columns: 105px minmax(0, 690px);
+
+  column-gap: 42px;
 
   padding: 46px 0 52px;
 
@@ -241,55 +348,66 @@ main {
 
 
 /*
-   Els blocs respiren de manera diferent.
-   No és una irregularitat decorativa:
-   simplement cada text té una mica d'espai propi.
+   Petita irregularitat compositiva.
 */
 
 .writing-item:nth-child(3n) {
-  padding-left: 32px;
+  padding-left: 5%;
 }
+
 
 .writing-item:nth-child(4n) {
-  padding-left: 12px;
+  padding-left: 2%;
 }
+
 
 .writing-item:nth-child(5n) {
-  padding-left: 52px;
+  padding-left: 8%;
 }
 
 
-/* =========================
-   DATES
-   ========================= */
+/* dates */
 
 .date {
-  padding-top: 9px;
+  padding-top: 8px;
 
-  font-size: 0.62rem;
+  font-size: 0.61rem;
+
   color: var(--earth);
 
   white-space: nowrap;
 }
 
 
-/* =========================
-   CONTINGUT
-   ========================= */
+.writing-item:nth-child(3n) .date {
+  transform: translateY(3px);
+}
+
+
+.writing-item:nth-child(5n) .date {
+  transform: translateX(-5px);
+}
+
+
+/* contingut */
 
 .writing-content {
   max-width: var(--reading);
 }
 
+
 .writing-content h2 {
   margin: 0 0 15px;
 
-  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
-  line-height: 1.14;
+  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+
+  line-height: 1.12;
 
   font-weight: 400;
+
   letter-spacing: -0.045em;
 }
+
 
 .writing-content h2 a {
   text-decoration: none;
@@ -299,14 +417,18 @@ main {
     text-decoration-color 0.25s ease;
 }
 
+
 .writing-content h2 a:hover {
   color: var(--accent);
 
   text-decoration: underline;
+
   text-decoration-thickness: 1px;
   text-underline-offset: 7px;
+
   text-decoration-color: var(--accent);
 }
+
 
 .writing-content p {
   margin: 0 0 22px;
@@ -316,11 +438,14 @@ main {
   color: #5C5750;
 
   font-size: 0.94rem;
-  line-height: 1.78;
+
+  line-height: 1.75;
 }
 
+
 .read {
-  font-size: 0.62rem;
+  font-size: 0.61rem;
+
   letter-spacing: 0.04em;
 
   text-decoration: none;
@@ -331,29 +456,37 @@ main {
 }
 
 
+.read:hover {
+  color: var(--accent-hover);
+}
+
+
 /* =========================
    SOBRE
    ========================= */
 
 .about {
-  max-width: 760px;
+  max-width: 720px;
 
-  padding: 0 0 175px;
+  padding: 0 0 155px;
 
-  margin-left: 11%;
+  margin-left: 0;
 }
+
 
 .about .section-label {
-  margin-bottom: 26px;
+  margin-bottom: 25px;
 }
+
 
 .about p {
   margin: 0;
 
-  max-width: 650px;
+  max-width: 420px;
 
-  font-size: 1.12rem;
-  line-height: 1.85;
+  font-size: 1.08rem;
+
+  line-height: 1.8;
 }
 
 
@@ -363,18 +496,21 @@ main {
 
 footer {
   width: min(var(--max), calc(100% - 72px));
+
   margin: 0 auto;
 
-  padding: 22px 0 34px;
+  padding: 22px 0 32px;
 
   border-top: 1px solid var(--line);
 
   display: flex;
   justify-content: space-between;
+
   gap: 20px;
 
   color: var(--muted);
-  font-size: 0.58rem;
+
+  font-size: 0.57rem;
 }
 
 
@@ -383,13 +519,14 @@ footer {
    ========================= */
 
 .full-article {
-  padding: 90px 0 160px;
+  padding: 86px 0 150px;
 }
+
 
 .article-top {
   width: min(var(--reading), 100%);
 
-  margin: 0 auto 80px;
+  margin: 0 auto 76px;
 
   display: flex;
   align-items: center;
@@ -398,48 +535,65 @@ footer {
   gap: 20px;
 }
 
+
 .article-top .date {
-  font-size: 0.62rem;
+  font-size: 0.61rem;
   color: var(--earth);
 }
 
+
 .back {
-  font-size: 0.62rem;
+  font-size: 0.61rem;
+
   text-decoration: none;
 
   transition: color 0.25s ease;
 }
 
+
+.back:hover {
+  color: var(--accent-hover);
+}
+
+
 .full-article h1 {
   width: min(var(--reading), 100%);
 
-  margin: 0 auto 72px;
+  margin: 0 auto 70px;
 
-  font-size: clamp(3rem, 6vw, 5.8rem);
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+
   line-height: 1;
 
   font-weight: 400;
-  letter-spacing: -0.065em;
+
+  letter-spacing: -0.06em;
 }
+
 
 .article-body {
   width: min(var(--reading), 100%);
+
   margin: 0 auto;
 }
+
 
 .article-body p {
   margin: 0 0 1.65em;
 
   font-size: 1.04rem;
+
   line-height: 1.95;
 }
 
-.article-body hr {
-  width: 30%;
 
-  margin: 76px 0;
+.article-body hr {
+  width: 34%;
+
+  margin: 72px 0;
 
   border: 0;
+
   border-top: 1px solid var(--line);
 }
 
@@ -457,120 +611,177 @@ footer {
   }
 
 
-  /* CAPÇALERA */
-
   .site-header {
     padding-top: 22px;
     padding-bottom: 20px;
   }
 
+
   nav {
-    gap: 16px;
+    gap: 17px;
   }
 
 
   /* PORTADA */
 
   .intro {
-    min-height: 510px;
+    min-height: 560px;
 
     padding: 70px 0 100px;
 
     align-items: center;
   }
 
+
   .intro h1 {
-    font-size: clamp(2.65rem, 12vw, 4.7rem);
-    line-height: 1.02;
+    font-size: clamp(2.55rem, 11.5vw, 4.4rem);
+
+    line-height: 1;
+
     letter-spacing: -0.06em;
   }
+
 
   .intro h1 .line-1 {
     max-width: 100%;
   }
 
-  .intro h1 .line-2 {
-    max-width: 92%;
 
-    margin-top: 0.20em;
-    margin-left: 0.25em;
+  .intro h1 .line-2 {
+    max-width: 100%;
+
+    margin-left: 7%;
+
+    margin-top: 0.08em;
   }
 
+
   .intro h1 .line-3 {
-    max-width: 78%;
+    max-width: 80%;
 
-    margin-top: 0.7em;
-    margin-left: 0.7em;
+    margin-left: 18%;
 
-    font-size: 0.48em;
+    margin-top: 0.6em;
+
+    font-size: 0.47em;
+  }
+
+
+  .intro h1 .line-4 {
+    margin-left: 31%;
+
+    margin-top: 0.4em;
+
+    font-size: 0.34em;
+  }
+
+
+  .intro-shape-one {
+    width: 65px;
+    height: 65px;
+
+    right: 3%;
+    top: 75px;
+  }
+
+
+  .intro-shape-two {
+    width: 18px;
+    height: 18px;
+
+    right: 11%;
+    bottom: 110px;
+  }
+
+
+  .intro-line {
+    left: 1%;
+    top: 85px;
+
+    height: 145px;
+  }
+
+
+  .intro-line::after {
+    width: 55px;
   }
 
 
   /* ESCRITS */
 
   .writing {
-    padding-bottom: 105px;
+    padding-bottom: 100px;
   }
 
-  .writing-item {
-    grid-template-columns: 1fr;
 
-    gap: 14px;
-
-    padding: 34px 0 40px;
-  }
-
+  .writing-item,
   .writing-item:nth-child(3n),
   .writing-item:nth-child(4n),
   .writing-item:nth-child(5n) {
-    padding-left: 0;
+    display: block;
+
+    padding: 32px 0 40px;
   }
 
-  .date {
+
+  .date,
+  .writing-item:nth-child(3n) .date,
+  .writing-item:nth-child(5n) .date {
     padding-top: 0;
+
+    margin-bottom: 13px;
+
+    transform: none;
   }
+
+
+  .writing-content {
+    max-width: 100%;
+  }
+
 
   .writing-content p {
     font-size: 0.9rem;
-    line-height: 1.72;
   }
 
 
   /* SOBRE */
 
   .about {
-    max-width: 100%;
-
-    margin-left: 0;
-
-    padding-bottom: 105px;
+    padding-bottom: 100px;
   }
 
+
   .about p {
+    max-width: 350px;
+
     font-size: 1rem;
-    line-height: 1.8;
   }
 
 
   /* ARTICLE */
 
   .full-article {
-    padding: 58px 0 105px;
+    padding: 55px 0 100px;
   }
+
 
   .article-top {
-    margin-bottom: 56px;
+    margin-bottom: 55px;
   }
+
 
   .full-article h1 {
-    margin-bottom: 54px;
+    margin-bottom: 52px;
 
-    font-size: clamp(2.8rem, 13vw, 4.3rem);
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
   }
+
 
   .article-body p {
     font-size: 0.98rem;
-    line-height: 1.86;
+
+    line-height: 1.85;
   }
 
 
@@ -579,6 +790,7 @@ footer {
   footer {
     padding-bottom: 25px;
   }
+
 }
 
 
@@ -592,9 +804,11 @@ footer {
     scroll-behavior: auto;
   }
 
-  .intro {
+
+  .intro h1 {
     animation: none;
   }
+
 
   .brand,
   nav a,
@@ -603,4 +817,5 @@ footer {
   .writing-content h2 a {
     transition: none;
   }
+
 }

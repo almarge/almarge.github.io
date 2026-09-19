@@ -1,58 +1,16 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALMARGE - Espai de Pensament Crític</title>
-    <!-- Ruta relativa al CSS -->
-    <link rel="stylesheet" href="./style.css">
-    <!-- Fonts de Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="art-deco-frame">
-        <main class="canvas">
-            <header class="header-grid">
-                <div class="header-left">
-                    <a href="#" class="nav-link">SOBRE</a>
-                </div>
-                <div class="header-center-motif">
-                    <div class="stripe-pattern"></div>
-                    <div class="red-pillar-top"></div>
-                    <div class="stripe-pattern"></div>
-                </div>
-                <div class="header-right">
-                    <a href="#" class="nav-link">ESCRITS</a>
-                </div>
-            </header>
+---
+layout: default
+---
+<div class="hero-title-container">
+    <h1 class="hero-title">ALMARGE</h1>
+</div>
 
-            <section class="hero-title-container">
-                <h1 class="hero-title">ALMARGE</h1>
-            </section>
-
-            <footer class="footer-grid">
-                <div class="footer-left">
-                    <p class="tagline-box">ESPAI<br>DE PENSAMENT<br>CRÍTIC</p>
-                </div>
-                
-                <div class="footer-center">
-                    <div class="horizontal-stripes"></div>
-                    <div class="red-block-bottom"></div>
-                    <div class="horizontal-stripes"></div>
-                </div>
-
-                <div class="footer-right">
-                    <span class="meta-date">MMXXV</span>
-                    <span class="meta-issue">NÚM. 01</span>
-                </div>
-            </footer>
-
-            <div class="bottom-bar">
-                <p class="sub-caption">AL MARGE DEL RELAT</p>
-            </div>
-        </main>
-    </div>
-</body>
-</html>
+<div class="post-list">
+  {% for post in site.posts %}
+    <p>
+      <a href="{{ post.url | relative_url }}" class="post-link">
+        {{ post.title }}
+      </a>
+    </p>
+  {% endfor %}
+</div>

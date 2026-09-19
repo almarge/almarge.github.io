@@ -9,9 +9,12 @@
   <title>almarge</title>
   <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
+
 <body>
+
 <header class="site-header">
   <a class="brand" href="{{ '/' | relative_url }}">almarge</a>
+
   <nav>
     <a href="#escrits">escrits</a>
     <a href="#sobre">sobre</a>
@@ -19,36 +22,61 @@
 </header>
 
 <main>
+
   <section class="intro">
-    <h1>coses que no sabia<br><em>on posar.</em></h1>
+    <h1>
+      <span class="line-1">Aquí hi ha coses que he escrit.</span>
+      <span class="line-2">No sé exactament què en faràs.</span>
+      <span class="line-3">Llegeix-les si vols.</span>
+    </h1>
   </section>
 
   <section id="escrits" class="writing">
+
     <div class="section-head">
       <div class="section-label">ESCRITS</div>
     </div>
 
     {% for post in site.posts %}
     <article class="writing-item">
-      <div class="date">{{ post.date | date: "%d.%m.%Y" }}</div>
-      <div class="writing-content">
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 210 }}</p>
-        <a class="read" href="{{ post.url | relative_url }}">llegir →</a>
+
+      <div class="date">
+        {{ post.date | date: "%d.%m.%Y" }}
       </div>
+
+      <div class="writing-content">
+        <h2>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+
+        <p>
+          {{ post.excerpt | strip_html | strip_newlines | truncate: 210 }}
+        </p>
+
+        <a class="read" href="{{ post.url | relative_url }}">
+          llegir →
+        </a>
+      </div>
+
     </article>
     {% endfor %}
+
   </section>
 
   <section id="sobre" class="about">
     <div class="section-label">SOBRE</div>
-    <p>Almarge és el lloc on acaben les coses que no sabia on posar.</p>
+
+    <p>
+      Almarge és el lloc on acaben les coses que no sabia on posar.
+    </p>
   </section>
+
 </main>
 
 <footer>
   <span>almarge © 2026</span>
   <span>fet sense pressa</span>
 </footer>
+
 </body>
 </html>

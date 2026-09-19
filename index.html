@@ -2,67 +2,179 @@
 layout: default
 ---
 
-<main class="poster">
+<main class="almarge-poster">
 
-  <div class="paper">
+  <svg
+    class="almarge-svg"
+    viewBox="0 0 1600 1000"
+    preserveAspectRatio="xMidYMid meet"
+    role="img"
+    aria-label="almarge"
+  >
 
-    <header class="masthead">
-
-      <a href="/about.html" class="nav nav-left">
-        SOBRE
-      </a>
-
-      <div class="symbol" aria-hidden="true">
-        <i></i>
-        <i></i>
-        <b></b>
-        <i></i>
-        <i></i>
-      </div>
-
-      <a href="/escrits.html" class="nav nav-right">
-        ESCRITS
-      </a>
-
-    </header>
+    <!-- FONS -->
+    <rect width="1600" height="1000" fill="#111111"/>
 
 
-    <section class="title">
-      <h1>ALMARGE</h1>
-    </section>
+    <!-- PAPER -->
+    <path
+      d="M70 35
+         H1530
+         V850
+         L835 960
+         L70 850
+         Z"
+      fill="#f1eee2"
+    />
 
 
-    <section class="meta">
-
-      <div class="meta-left">
-        <span>ESPAI</span>
-        <span>DE PENSAMENT</span>
-        <span>CRÍTIC</span>
-      </div>
-
-      <div class="rules" aria-hidden="true">
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-
-      <div class="meta-right">
-        <strong>MMXXVI</strong>
-        <span>NÚM. 01</span>
-      </div>
-
-    </section>
+    <!-- LÍNIA SUPERIOR -->
+    <rect
+      x="112"
+      y="82"
+      width="1376"
+      height="4"
+      fill="#111111"
+    />
 
 
-    <div class="red-column" aria-hidden="true"></div>
+    <!-- SOBRE -->
+    <a href="/about.html">
+      <text
+        x="112"
+        y="119"
+        class="mono nav-text"
+      >SOBRE</text>
 
-  </div>
+      <rect
+        x="112"
+        y="132"
+        width="74"
+        height="3"
+        fill="#111111"
+      />
+    </a>
 
 
-  <footer class="black-footer">
-    <span>AL MARGE DEL RELAT</span>
-  </footer>
+    <!-- ESCRITS -->
+    <a href="/escrits.html">
+      <text
+        x="1488"
+        y="119"
+        text-anchor="end"
+        class="mono nav-text"
+      >ESCRITS</text>
+
+      <rect
+        x="1410"
+        y="132"
+        width="78"
+        height="3"
+        fill="#111111"
+      />
+    </a>
+
+
+    <!-- SÍMBOL CENTRAL -->
+
+    <rect x="778" y="82" width="5" height="88" fill="#111111"/>
+    <rect x="790" y="82" width="5" height="88" fill="#111111"/>
+
+    <rect x="802" y="82" width="30" height="88" fill="#8d201c"/>
+
+    <rect x="839" y="82" width="5" height="88" fill="#111111"/>
+    <rect x="851" y="82" width="5" height="88" fill="#111111"/>
+
+
+    <!-- ALMARGE -->
+
+    <text
+      x="800"
+      y="475"
+      text-anchor="middle"
+      class="almarge-title"
+    >ALMARGE</text>
+
+
+    <!-- LÍNIA D'INFORMACIÓ -->
+    <rect
+      x="112"
+      y="670"
+      width="1376"
+      height="5"
+      fill="#111111"
+    />
+
+
+    <!-- TEXT ESQUERRA -->
+
+    <text x="112" y="716" class="mono info">
+      ESPAI
+    </text>
+
+    <text x="112" y="738" class="mono info">
+      DE PENSAMENT
+    </text>
+
+    <text x="112" y="760" class="mono info">
+      CRÍTIC
+    </text>
+
+
+    <!-- LÍNIES CENTRALS -->
+
+    <rect x="400" y="708" width="820" height="4" fill="#111111"/>
+    <rect x="400" y="725" width="820" height="4" fill="#111111"/>
+    <rect x="400" y="742" width="820" height="4" fill="#111111"/>
+    <rect x="400" y="759" width="820" height="4" fill="#111111"/>
+    <rect x="400" y="776" width="820" height="4" fill="#111111"/>
+
+
+    <!-- NÚMERO -->
+
+    <text
+      x="1488"
+      y="718"
+      text-anchor="end"
+      class="mono number"
+    >MMXXVI</text>
+
+    <rect
+      x="1398"
+      y="731"
+      width="90"
+      height="3"
+      fill="#111111"
+    />
+
+    <text
+      x="1488"
+      y="759"
+      text-anchor="end"
+      class="mono info"
+    >NÚM. 01</text>
+
+
+    <!-- BLOC VERMELL INFERIOR -->
+
+    <rect
+      x="748"
+      y="790"
+      width="104"
+      height="170"
+      fill="#8d201c"
+    />
+
+
+    <!-- TEXT INFERIOR -->
+
+    <text
+      x="800"
+      y="920"
+      text-anchor="middle"
+      class="mono footer-text"
+    >AL MARGE DEL RELAT</text>
+
+  </svg>
 
 </main>

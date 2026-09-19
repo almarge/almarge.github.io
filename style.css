@@ -32,6 +32,8 @@ a {
   color: inherit;
 }
 
+/* CAPÇALERA */
+
 .site-header {
   width: min(var(--max), calc(100% - 56px));
   margin: 0 auto;
@@ -47,7 +49,7 @@ a {
   font-size: 1rem;
   letter-spacing: -0.02em;
   color: var(--accent);
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
 
 .brand:hover {
@@ -72,7 +74,7 @@ footer {
 nav a {
   font-size: 0.68rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
 
 nav a:hover,
@@ -86,11 +88,28 @@ main {
   margin: 0 auto;
 }
 
+/* PORTADA */
+
 .intro {
   min-height: 460px;
   display: flex;
   align-items: center;
-  padding: 92px 0 110px;
+  padding: 76px 0 126px;
+  position: relative;
+  animation: intro-in 0.7s ease both;
+}
+
+/* Petita ruptura visual */
+
+.intro::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 64px;
+  width: 1px;
+  height: 158px;
+  background: var(--accent);
+  opacity: 0.75;
 }
 
 .intro h1 {
@@ -107,6 +126,20 @@ main {
   font-weight: 400;
 }
 
+@keyframes intro-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ESCRITS */
+
 .writing {
   padding: 0 0 150px;
 }
@@ -114,6 +147,7 @@ main {
 .section-head {
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line);
+  position: relative;
 }
 
 .section-label {
@@ -130,12 +164,36 @@ main {
   border-bottom: 1px solid var(--line);
 }
 
+/* Petites irregularitats en les línies */
+
+.writing-item:nth-child(3n) {
+  width: 94%;
+}
+
+.writing-item:nth-child(4n) {
+  width: 98%;
+}
+
+/* DATES */
+
 .date {
   padding-top: 8px;
   font-size: 0.62rem;
   color: var(--earth);
   white-space: nowrap;
 }
+
+/* Petites desviacions, gairebé imperceptibles */
+
+.writing-item:nth-child(3) .date {
+  transform: translateY(3px);
+}
+
+.writing-item:nth-child(4) .date {
+  transform: translateY(-2px);
+}
+
+/* CONTINGUT */
 
 .writing-content {
   max-width: var(--reading);
@@ -151,11 +209,17 @@ main {
 
 .writing-content h2 a {
   text-decoration: none;
-  transition: color 0.2s ease;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  transition:
+    color 0.25s ease,
+    text-decoration-color 0.25s ease;
 }
 
 .writing-content h2 a:hover {
   color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
 }
 
 .writing-content p {
@@ -171,8 +235,10 @@ main {
   text-decoration: none;
   letter-spacing: 0.04em;
   color: var(--accent);
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
+
+/* SOBRE */
 
 .about {
   padding: 0 0 150px;
@@ -189,6 +255,8 @@ main {
   line-height: 1.8;
 }
 
+/* FOOTER */
+
 footer {
   width: min(var(--max), calc(100% - 56px));
   margin: 0 auto;
@@ -200,6 +268,8 @@ footer {
   color: var(--muted);
   font-size: 0.58rem;
 }
+
+/* ARTICLE */
 
 .full-article {
   padding: 86px 0 150px;
@@ -222,7 +292,7 @@ footer {
 .back {
   font-size: 0.62rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
 
 .full-article h1 {
@@ -253,7 +323,10 @@ footer {
   border-top: 1px solid var(--line);
 }
 
+/* MOBIL */
+
 @media (max-width: 700px) {
+
   .site-header,
   main,
   footer {
@@ -269,14 +342,24 @@ footer {
     gap: 16px;
   }
 
+  /* PORTADA MOBIL */
+
   .intro {
     min-height: 360px;
-    padding: 65px 0 80px;
+    padding: 58px 0 87px;
+  }
+
+  .intro::before {
+    left: -14px;
+    top: 45px;
+    height: 105px;
   }
 
   .intro h1 {
     font-size: clamp(2.9rem, 13vw, 4.8rem);
   }
+
+  /* ESCRITS MOBIL */
 
   .writing {
     padding-bottom: 100px;
@@ -286,19 +369,29 @@ footer {
     grid-template-columns: 1fr;
     gap: 14px;
     padding: 32px 0 38px;
+    width: 100% !important;
   }
 
   .date {
     padding-top: 0;
   }
 
+  .writing-item:nth-child(3) .date,
+  .writing-item:nth-child(4) .date {
+    transform: none;
+  }
+
   .writing-content p {
     font-size: 0.9rem;
   }
 
+  /* SOBRE MOBIL */
+
   .about {
     padding-bottom: 100px;
   }
+
+  /* ARTICLES MOBIL */
 
   .full-article {
     padding: 55px 0 100px;
@@ -318,7 +411,30 @@ footer {
     line-height: 1.85;
   }
 
+  /* FOOTER MOBIL */
+
   footer {
     padding-bottom: 25px;
+  }
+}
+
+/* REDUCCIÓ DE MOVIMENT */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .intro {
+    animation: none;
+  }
+
+  .brand,
+  nav a,
+  .read,
+  .back,
+  .writing-content h2 a {
+    transition: none;
   }
 }

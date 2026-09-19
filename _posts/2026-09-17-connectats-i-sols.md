@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "La desgràcia del dol"
+title: "Connectats i sols"
 ---
-# La desgràcia del dol
+# Connectats i sols
 
 Si estem més connectats que mai, per què tanta gent se sent tan sola? Va ser una conversa interessant que vaig tenir amb un amic. Si mirem enrere en la llarga evolució de la humanitat, una cosa queda clara: els éssers humans no estàvem destinats a viure com vivim ara.
 

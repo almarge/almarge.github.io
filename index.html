@@ -1,180 +1,54 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMARGE - Espai de Pensament Crític</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- Part superior: Linies vermelles i negres, texts -->
+        <header class="top-bar">
+            <div class="side-content">
+                <span class="label">SOBRE</span>
+            </div>
+            <div class="center-lines">
+                <div class="red-bar"></div>
+                <div class="pattern"></div>
+                <div class="red-bar"></div>
+            </div>
+            <div class="side-content">
+                <span class="label">ESCRITS</span>
+            </div>
+        </header>
 
-<main class="almarge-poster">
+        <!-- Titular Gran -->
+        <main class="main-content">
+            <h1 class="main-title">ALMARGE</h1>
+        </main>
 
-  <svg
-    class="almarge-svg"
-    viewBox="0 0 1600 1000"
-    preserveAspectRatio="xMidYMid meet"
-    role="img"
-    aria-label="almarge"
-  >
+        <!-- Part inferior: Graella de linies, rectangle vermell, dades i peu de pàgina -->
+        <footer class="bottom-area">
+            <div class="bottom-grid">
+                <div class="info-block">
+                    <p>ESPAI DE PENSAMENT CRÍTIC</p>
+                </div>
+                <div class="lines-pattern"></div>
+                <div class="red-block"></div>
+                <div class="lines-pattern"></div>
+                <div class="meta-block">
+                    <p class="date">MMXXV</p>
+                    <p class="number">NÚM. 01</p>
+                </div>
+            </div>
+            <p class="footer-tagline">AL MARGE DEL RELAT</p>
+        </footer>
 
-    <!-- FONS -->
-    <rect width="1600" height="1000" fill="#111111"/>
-
-
-    <!-- PAPER -->
-    <path
-      d="M70 35
-         H1530
-         V850
-         L835 960
-         L70 850
-         Z"
-      fill="#f1eee2"
-    />
-
-
-    <!-- LÍNIA SUPERIOR -->
-    <rect
-      x="112"
-      y="82"
-      width="1376"
-      height="4"
-      fill="#111111"
-    />
-
-
-    <!-- SOBRE -->
-    <a href="/about.html">
-      <text
-        x="112"
-        y="119"
-        class="mono nav-text"
-      >SOBRE</text>
-
-      <rect
-        x="112"
-        y="132"
-        width="74"
-        height="3"
-        fill="#111111"
-      />
-    </a>
-
-
-    <!-- ESCRITS -->
-    <a href="/escrits.html">
-      <text
-        x="1488"
-        y="119"
-        text-anchor="end"
-        class="mono nav-text"
-      >ESCRITS</text>
-
-      <rect
-        x="1410"
-        y="132"
-        width="78"
-        height="3"
-        fill="#111111"
-      />
-    </a>
-
-
-    <!-- SÍMBOL CENTRAL -->
-
-    <rect x="778" y="82" width="5" height="88" fill="#111111"/>
-    <rect x="790" y="82" width="5" height="88" fill="#111111"/>
-
-    <rect x="802" y="82" width="30" height="88" fill="#8d201c"/>
-
-    <rect x="839" y="82" width="5" height="88" fill="#111111"/>
-    <rect x="851" y="82" width="5" height="88" fill="#111111"/>
-
-
-    <!-- ALMARGE -->
-
-    <text
-      x="800"
-      y="475"
-      text-anchor="middle"
-      class="almarge-title"
-    >ALMARGE</text>
-
-
-    <!-- LÍNIA D'INFORMACIÓ -->
-    <rect
-      x="112"
-      y="670"
-      width="1376"
-      height="5"
-      fill="#111111"
-    />
-
-
-    <!-- TEXT ESQUERRA -->
-
-    <text x="112" y="716" class="mono info">
-      ESPAI
-    </text>
-
-    <text x="112" y="738" class="mono info">
-      DE PENSAMENT
-    </text>
-
-    <text x="112" y="760" class="mono info">
-      CRÍTIC
-    </text>
-
-
-    <!-- LÍNIES CENTRALS -->
-
-    <rect x="400" y="708" width="820" height="4" fill="#111111"/>
-    <rect x="400" y="725" width="820" height="4" fill="#111111"/>
-    <rect x="400" y="742" width="820" height="4" fill="#111111"/>
-    <rect x="400" y="759" width="820" height="4" fill="#111111"/>
-    <rect x="400" y="776" width="820" height="4" fill="#111111"/>
-
-
-    <!-- NÚMERO -->
-
-    <text
-      x="1488"
-      y="718"
-      text-anchor="end"
-      class="mono number"
-    >MMXXVI</text>
-
-    <rect
-      x="1398"
-      y="731"
-      width="90"
-      height="3"
-      fill="#111111"
-    />
-
-    <text
-      x="1488"
-      y="759"
-      text-anchor="end"
-      class="mono info"
-    >NÚM. 01</text>
-
-
-    <!-- BLOC VERMELL INFERIOR -->
-
-    <rect
-      x="748"
-      y="790"
-      width="104"
-      height="170"
-      fill="#8d201c"
-    />
-
-
-    <!-- TEXT INFERIOR -->
-
-    <text
-      x="800"
-      y="920"
-      text-anchor="middle"
-      class="mono footer-text"
-    >AL MARGE DEL RELAT</text>
-
-  </svg>
-
-</main>
+    </div>
+</body>
+</html>

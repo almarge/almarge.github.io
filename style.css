@@ -1,162 +1,154 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
-
-
+/* --- Variables de Color i Fonts --- */
 :root {
-  --black: #111111;
-  --paper: #f1eee2;
-  --red: #8d201c;
+    --bg-color: #E6DFCD; /* Crema clar de la imatge */
+    --text-color: #000000;
+    --red-color: #A3281E; /* Vermell teula de la imatge */
+    --accent-red-small: #C0392B; /* Un vermell una mica més viu per les línies fines */
+    --title-font: 'Anton', sans-serif; /* Tipografia modular i alta */
+    --body-font: 'Inter', sans-serif;
 }
 
-
+/* --- Resets i Estils Generals --- */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-}
-
 
 body {
-  background: var(--black);
-  color: var(--black);
-  overflow-x: hidden;
+    background-color: var(--bg-color);
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.2;
+    overflow-x: hidden;
 }
 
-
-a {
-  color: inherit;
-  text-decoration: none;
+/* --- Contenidor Principal (Graella central) --- */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 1200px;
+    height: 90vh;
+    margin: 5vh auto;
+    position: relative;
+    border: 2px solid var(--text-color); /* El marc negre global */
 }
 
-
-.almarge-poster {
-  width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  background: var(--black);
-
-  overflow: hidden;
+/* --- Part Superior (Top Bar) --- */
+.top-bar {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    align-items: center;
+    border-bottom: 2px solid var(--text-color);
+    height: 15%;
 }
 
-
-.almarge-svg {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
-  max-width: 1600px;
-  min-height: 100vh;
-
-  font-display: swap;
+.side-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
 }
 
-
-/* TIPOGRAFIA MONO */
-
-.mono {
-  font-family: "DM Mono", monospace;
-  fill: var(--black);
+.center-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-
-.nav-text {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 2px;
+.red-bar {
+    width: 10px;
+    height: 2px;
+    background-color: var(--red-color);
+    margin: 2px 0;
 }
 
-
-.info {
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+.pattern {
+    width: 50px;
+    height: 50px;
+    background-image: 
+        repeating-linear-gradient(to right, var(--text-color), var(--text-color) 2px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(to bottom, var(--text-color), var(--text-color) 2px, transparent 2px, transparent 4px);
+    background-size: 8px 8px; /* Ajusta la densitat del patró */
 }
 
-
-.number {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 2px;
+/* --- Titular Gran (ALMARGE) --- */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Ocupa tot l'espai central */
 }
 
-
-.footer-text {
-  fill: var(--paper);
-
-  font-size: 15px;
-  font-weight: 400;
-
-  letter-spacing: 5px;
+.main-title {
+    font-family: var(--title-font);
+    font-size: calc(10vw + 5rem); /* Tamany de font massiu i responsive */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.05em; /* Lletres més juntes */
+    transform: scaleY(1.5); /* Estira la font verticalment per imitar el disseny */
+    line-height: 1;
 }
 
-
-/* TÍTOL */
-
-.almarge-title {
-  font-family:
-    "Archivo Narrow",
-    "Arial Narrow",
-    Impact,
-    sans-serif;
-
-  font-size: 255px;
-  font-weight: 700;
-
-  letter-spacing: -13px;
-
-  fill: var(--black);
+/* --- Part Inferior (Bottom Area) --- */
+.bottom-area {
+    display: grid;
+    grid-template-rows: auto 50px; /* Graella per la part de linies i peu */
+    border-top: 2px solid var(--text-color);
 }
 
-
-/* TEXTURA MOLT SUBTIL */
-
-.almarge-svg::after {
-  content: "";
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 100px 1fr 1.5fr;
+    align-items: end;
+    padding-bottom: 10px;
 }
 
-
-/* INTERACCIÓ */
-
-a text,
-a rect {
-  cursor: pointer;
+.info-block, .meta-block {
+    font-size: 0.8rem;
+    padding: 0 10px;
 }
 
-
-@media (max-width: 900px) {
-
-  .almarge-svg {
-    min-height: 0;
-    width: 1300px;
-    max-width: none;
-
-    transform: translateX(
-      calc((100vw - 1300px) / 2)
-    );
-  }
-
+.info-block p {
+    max-width: 150px;
 }
 
+.lines-pattern {
+    height: 3px;
+    background-image: repeating-linear-gradient(to right, var(--text-color), var(--text-color) 1px, transparent 1px, transparent 3px);
+}
 
-@media (max-width: 600px) {
+.red-block {
+    grid-column: 3; /* Rectangle vermell central */
+    width: 60px;
+    height: 120px;
+    background-color: var(--red-color);
+    transform: translateY(20%); /* Baixa una mica com a la imatge */
+}
 
-  .almarge-svg {
-    width: 1100px;
+.date, .number {
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
 
-    transform: translateX(
-      calc((100vw - 1100px) / 2)
-    );
-  }
+/* --- Peu de Pàgina --- */
+.footer-tagline {
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    padding: 5px 0;
+}
 
+/* --- Responsive Bàsic --- */
+@media (max-width: 768px) {
+    .top-bar { grid-template-columns: 1fr 60px 1fr; }
+    .bottom-grid { grid-template-columns: 1fr; text-align: center; gap: 10px; }
+    .red-block { display: none; } /* Amaga el cubell vermell per dispositius petits */
+    .main-title { transform: none; font-size: 4rem; } /* Simplifica el títol */
 }

@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
+
+/* ==================================================
+   VARIABLES
+   ================================================== */
+
 :root {
-  --paper: #f1eee3;
+  --paper: #f1eee2;
   --black: #111111;
-  --red: #8d201b;
+  --red: #8d201c;
 }
+
+
+/* ==================================================
+   RESET
+   ================================================== */
 
 * {
   box-sizing: border-box;
@@ -30,34 +40,46 @@ a {
 }
 
 
-/* =========================================
-   CONTENIDOR
-   ========================================= */
+/* ==================================================
+   GRAN COMPOSICIÓ
+   ================================================== */
 
-.cover {
+.poster {
   position: relative;
+
   width: 100%;
   min-height: 100vh;
+
   background: var(--black);
-  padding: 0 4.7vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
 }
 
 
-/* =========================================
-   PAPER PRINCIPAL
-   ========================================= */
+/* ==================================================
+   PAPER
 
-.cover-panel {
+   La relació és deliberadament semblant
+   a la imatge de referència.
+   ================================================== */
+
+.paper {
   position: relative;
-  width: 100%;
-  height: 94vh;
-  min-height: 720px;
+
+  width: 92vw;
+  height: min(92vh, 61.33vw);
+
+  min-height: 680px;
 
   background:
     radial-gradient(
-      ellipse at center,
-      rgba(255,255,255,0.10),
-      transparent 72%
+      ellipse at 50% 45%,
+      rgba(255,255,255,0.13),
+      transparent 70%
     ),
     var(--paper);
 
@@ -66,18 +88,20 @@ a {
   clip-path: polygon(
     0 0,
     100% 0,
-    100% 89.5%,
-    53% 100%,
-    0 89.5%
+    100% 90%,
+    52% 100%,
+    0 90%
   );
 }
 
 
-/* textura */
+/* textura de paper molt subtil */
 
-.cover-panel::after {
+.paper::after {
   content: "";
+
   position: absolute;
+
   inset: 0;
 
   pointer-events: none;
@@ -93,46 +117,43 @@ a {
       transparent 4px
     );
 
-  z-index: 30;
+  z-index: 50;
 }
 
 
-/* =========================================
+/* ==================================================
    CAPÇALERA
-   ========================================= */
+   ================================================== */
 
-.cover-top {
+.masthead {
   position: absolute;
 
-  top: 50px;
-  left: 2.1vw;
-  right: 2.1vw;
+  top: 5.2%;
+  left: 2.8%;
+  right: 2.8%;
+
+  height: 12%;
 
   display: grid;
+
   grid-template-columns: 1fr auto 1fr;
 
   align-items: start;
 
-  /*
-     La línia superior es crea com a background
-     perquè quedi interrompuda al centre.
-  */
-
-  border-top: 0;
-
-  padding-top: 0;
-
   z-index: 10;
 }
 
-.cover-top::before {
+
+/* línia superior */
+
+.masthead::before {
   content: "";
 
   position: absolute;
 
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
 
   height: 4px;
 
@@ -140,90 +161,103 @@ a {
     linear-gradient(
       to right,
       var(--black) 0%,
-      var(--black) 42%,
-      transparent 42%,
-      transparent 58%,
-      var(--black) 58%,
+      var(--black) 43%,
+      transparent 43%,
+      transparent 57%,
+      var(--black) 57%,
       var(--black) 100%
     );
-
-  z-index: -1;
 }
 
-.nav-link {
-  width: max-content;
 
-  margin-top: 18px;
+/* ==================================================
+   NAVEGACIÓ
+   ================================================== */
+
+.nav {
+  position: relative;
+
+  margin-top: 19px;
+
+  width: max-content;
 
   font-family: "DM Mono", monospace;
 
   font-size: 12px;
+
   font-weight: 500;
 
   line-height: 1;
 
   letter-spacing: 0.14em;
 
-  padding-bottom: 8px;
+  padding-bottom: 9px;
 
   border-bottom: 3px solid var(--black);
 }
 
-.cover-top .nav-link:last-child {
+.nav-right {
   justify-self: end;
 }
 
 
-/* =========================================
-   SÍMBOL SUPERIOR
-   ========================================= */
+/* ==================================================
+   SÍMBOL CENTRAL
+   ================================================== */
 
-.top-mark {
+.symbol {
+  position: relative;
+
   display: flex;
 
-  align-items: flex-start;
   justify-content: center;
+  align-items: flex-start;
 
   gap: 5px;
 
-  height: 95px;
+  height: 92px;
 }
 
-.top-mark span {
+.symbol i,
+.symbol b {
   display: block;
 
   width: 5px;
-  height: 95px;
+  height: 92px;
 
   background: var(--black);
+
+  margin: 0;
+  padding: 0;
 }
 
-.top-mark span.red {
-  width: 31px;
+.symbol b {
+  width: 29px;
+
   background: var(--red);
 }
 
 
-/* =========================================
+/* ==================================================
    ALMARGE
-   ========================================= */
 
-.hero {
+   Aquesta és la peça dominant de la portada.
+   ================================================== */
+
+.title {
   position: absolute;
 
-  left: 7.8%;
-  right: 7.8%;
+  left: 2.8%;
+  right: 2.8%;
 
-  /*
-     Més amunt que ara.
-  */
-
-  top: 16.2%;
+  top: 24%;
 
   z-index: 5;
+
+  overflow: visible;
 }
 
-.hero h1 {
+.title h1 {
   margin: 0;
 
   font-family:
@@ -231,95 +265,85 @@ a {
     Impact,
     sans-serif;
 
-  /*
-     Molt més gran verticalment.
-  */
-
-  font-size: clamp(
-    360px,
-    35vw,
-    700px
-  );
+  font-size: 19.2vw;
 
   font-weight: 700;
 
-  line-height: 0.70;
+  line-height: 0.72;
 
   letter-spacing: -0.075em;
 
   white-space: nowrap;
 
-  transform-origin: left top;
+  transform-origin: left center;
 
-  /*
-     El fem molt alt però controlem
-     l'amplada amb scaleX.
-  */
-
-  transform: scaleX(0.72);
+  transform: scaleX(0.92);
 }
 
 
-/* =========================================
-   INFORMACIÓ INFERIOR
-   ========================================= */
+/* ==================================================
+   INFORMACIÓ
+   ================================================== */
 
-.information {
+.meta {
   position: absolute;
 
-  left: 2.1vw;
-  right: 2.1vw;
+  left: 2.8%;
+  right: 2.8%;
 
-  /*
-     Una mica més avall,
-     com a la referència.
-  */
+  top: 72.8%;
 
-  top: 77%;
+  height: 11%;
 
   display: grid;
 
   grid-template-columns:
-    150px
+    130px
     1fr
-    150px;
+    120px;
 
-  align-items: center;
+  align-items: start;
 
   border-top: 4px solid var(--black);
 
-  padding-top: 14px;
+  padding-top: 15px;
 
   z-index: 10;
 }
 
 
-/* esquerra */
+/* text esquerre */
 
-.description {
+.meta-left {
+  display: flex;
+
+  flex-direction: column;
+
   font-family: "DM Mono", monospace;
 
   font-size: 10px;
 
-  line-height: 1.45;
+  line-height: 1.42;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 
-/* línies */
+/* ==================================================
+   SISTEMA DE LÍNIES
+   ================================================== */
 
-.line-system {
+.rules {
   display: flex;
 
   flex-direction: column;
 
   gap: 5px;
 
-  padding: 0 45px;
+  padding: 2px 35px 0;
 }
 
-.line-system span {
+.rules i {
   display: block;
 
   width: 100%;
@@ -330,9 +354,11 @@ a {
 }
 
 
-/* número */
+/* ==================================================
+   NÚMERO
+   ================================================== */
 
-.issue {
+.meta-right {
   display: flex;
 
   flex-direction: column;
@@ -345,10 +371,10 @@ a {
 
   line-height: 1.7;
 
-  letter-spacing: 0.10em;
+  letter-spacing: 0.08em;
 }
 
-.issue strong {
+.meta-right strong {
   font-weight: 500;
 
   padding-bottom: 5px;
@@ -357,279 +383,275 @@ a {
 }
 
 
-/* =========================================
-   BLOC VERMELL
-   ========================================= */
+/* ==================================================
+   BLOC VERMELL INFERIOR
+   ================================================== */
 
-.red-bottom {
+.red-column {
   position: absolute;
 
   left: 50%;
 
-  bottom: -3px;
+  bottom: 0;
 
-  width: 108px;
+  width: 92px;
 
-  /*
-     Més semblant a la referència:
-     surt del sistema de línies i arriba
-     fins a la zona negra.
-  */
-
-  height: 230px;
+  height: 22%;
 
   transform: translateX(-50%);
 
   background: var(--red);
 
-  z-index: 12;
+  z-index: 20;
 }
 
 
-/* =========================================
-   FRANJA NEGRA INFERIOR
-   ========================================= */
+/* ==================================================
+   PEU NEGRE
+   ================================================== */
 
-.bottom-black {
+.black-footer {
   position: absolute;
 
   left: 0;
   right: 0;
 
-  /*
-     Ara és molt més petita.
-  */
+  bottom: 0;
 
-  top: 94vh;
-
-  height: 6vh;
+  height: 8vh;
 
   background: var(--black);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  padding-bottom: 17px;
 
   z-index: 2;
 }
 
-
-/* =========================================
-   TEXT INFERIOR
-   ========================================= */
-
-.bottom-title {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 17px;
-
-  transform: translateX(-50%);
-
+.black-footer span {
   color: var(--paper);
 
   font-family: "DM Mono", monospace;
 
-  font-size: 11px;
+  font-size: 10px;
 
-  letter-spacing: 0.42em;
+  letter-spacing: 0.40em;
 
-  text-indent: 0.42em;
+  text-indent: 0.40em;
 
   white-space: nowrap;
 }
 
 
-/* =========================================
+/* ==================================================
    BARRES VERMELLES LATERALS
-   ========================================= */
+   ================================================== */
 
-.side-red {
+.poster::before,
+.poster::after {
+  content: "";
+
   position: fixed;
 
-  top: 39vh;
+  top: 40vh;
 
-  width: 4.7vw;
+  width: 4vw;
 
-  height: 23px;
+  height: 22px;
 
   background: var(--red);
 
   z-index: 1;
 }
 
-.side-red-left {
+.poster::before {
   left: 0;
 }
 
-.side-red-right {
+.poster::after {
   right: 0;
 }
 
 
-/* =========================================
+/* ==================================================
    PANTALLES MITJANES
-   ========================================= */
+   ================================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
-  .hero h1 {
-    font-size: 35vw;
+  .title h1 {
+    font-size: 19.5vw;
   }
 
-  .information {
+  .meta {
     grid-template-columns:
-      125px
+      115px
       1fr
-      125px;
+      110px;
   }
 
-  .line-system {
-    padding: 0 30px;
+  .rules {
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 
 
-/* =========================================
+/* ==================================================
    MÒBIL
-   ========================================= */
+   ================================================== */
 
 @media (max-width: 700px) {
 
-  .cover {
-    padding: 0;
-  }
+  .paper {
+    width: 100vw;
 
-  .cover-panel {
-    width: 100%;
-
-    height: 94svh;
+    height: 92svh;
 
     min-height: 580px;
 
     clip-path: polygon(
       0 0,
       100% 0,
-      100% 89.5%,
-      53% 100%,
-      0 89.5%
+      100% 90%,
+      52% 100%,
+      0 90%
     );
   }
 
-  .cover-top {
+
+  .masthead {
     top: 25px;
 
     left: 20px;
     right: 20px;
   }
 
-  .cover-top::before {
+  .masthead::before {
     height: 3px;
   }
 
-  .nav-link {
+
+  .nav {
     margin-top: 13px;
 
     font-size: 8px;
-
-    letter-spacing: 0.10em;
 
     padding-bottom: 6px;
 
     border-bottom-width: 2px;
   }
 
-  .top-mark {
+
+  .symbol {
     height: 55px;
+
     gap: 3px;
   }
 
-  .top-mark span {
+  .symbol i,
+  .symbol b {
     width: 3px;
     height: 55px;
   }
 
-  .top-mark span.red {
-    width: 19px;
+  .symbol b {
+    width: 18px;
   }
 
-  .hero {
-    left: 7%;
-    right: 7%;
 
-    top: 18%;
+  .title {
+    left: 6%;
+    right: 6%;
+
+    top: 25%;
   }
 
-  .hero h1 {
-    font-size: 34vw;
+  .title h1 {
+    font-size: 23vw;
 
-    line-height: 0.70;
+    line-height: 0.72;
 
-    letter-spacing: -0.065em;
+    letter-spacing: -0.06em;
 
-    transform: scaleX(0.72);
+    transform: scaleX(0.91);
   }
 
-  .information {
+
+  .meta {
     left: 20px;
     right: 20px;
 
-    top: 77%;
+    top: 72%;
 
     grid-template-columns:
-      75px
+      72px
       1fr
-      65px;
+      60px;
 
     border-top-width: 3px;
 
     padding-top: 10px;
   }
 
-  .description {
+  .meta-left {
     font-size: 7px;
-    line-height: 1.5;
   }
 
-  .line-system {
+  .rules {
     gap: 3px;
-    padding: 0 10px;
+
+    padding: 2px 10px 0;
   }
 
-  .line-system span {
+  .rules i {
     height: 2px;
   }
 
-  .issue {
+  .meta-right {
     font-size: 7px;
   }
 
-  .issue strong {
+  .meta-right strong {
     border-bottom-width: 2px;
+
     padding-bottom: 3px;
   }
 
-  .red-bottom {
-    width: 65px;
-    height: 175px;
+
+  .red-column {
+    width: 58px;
+
+    height: 22%;
   }
 
-  .bottom-black {
-    top: 94vh;
-    height: 6vh;
+
+  .black-footer {
+    height: 8svh;
+
+    padding-bottom: 11px;
   }
 
-  .bottom-title {
-    bottom: 11px;
-
+  .black-footer span {
     font-size: 7px;
 
-    letter-spacing: 0.25em;
+    letter-spacing: 0.24em;
 
-    text-indent: 0.25em;
+    text-indent: 0.24em;
   }
 
-  .side-red {
-    top: 39vh;
 
+  .poster::before,
+  .poster::after {
     width: 20px;
+
     height: 13px;
+
+    top: 40vh;
   }
 }

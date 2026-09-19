@@ -30,33 +30,33 @@ a {
 }
 
 
-/* =========================
-   CONTENIDOR GENERAL
-   ========================= */
+/* =========================================
+   CONTENIDOR
+   ========================================= */
 
 .cover {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: var(--black);
-  padding: 0 4.5vw;
+  padding: 0 4.7vw;
 }
 
 
-/* =========================
-   PAPER
-   ========================= */
+/* =========================================
+   PAPER PRINCIPAL
+   ========================================= */
 
 .cover-panel {
   position: relative;
   width: 100%;
-  height: 88vh;
-  min-height: 700px;
+  height: 94vh;
+  min-height: 720px;
 
   background:
     radial-gradient(
       ellipse at center,
-      rgba(255,255,255,0.11),
+      rgba(255,255,255,0.10),
       transparent 72%
     ),
     var(--paper);
@@ -66,14 +66,14 @@ a {
   clip-path: polygon(
     0 0,
     100% 0,
-    100% 88%,
+    100% 89.5%,
     53% 100%,
-    0 88%
+    0 89.5%
   );
 }
 
 
-/* textura molt subtil */
+/* textura */
 
 .cover-panel::after {
   content: "";
@@ -82,7 +82,7 @@ a {
 
   pointer-events: none;
 
-  opacity: 0.12;
+  opacity: 0.13;
 
   background-image:
     repeating-linear-gradient(
@@ -97,31 +97,63 @@ a {
 }
 
 
-/* =========================
+/* =========================================
    CAPÇALERA
-   ========================= */
+   ========================================= */
 
 .cover-top {
   position: absolute;
 
-  top: 42px;
-  left: 2.5vw;
-  right: 2.5vw;
+  top: 50px;
+  left: 2.1vw;
+  right: 2.1vw;
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
 
   align-items: start;
 
-  border-top: 4px solid var(--black);
+  /*
+     La línia superior es crea com a background
+     perquè quedi interrompuda al centre.
+  */
 
-  padding-top: 15px;
+  border-top: 0;
+
+  padding-top: 0;
 
   z-index: 10;
 }
 
+.cover-top::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      to right,
+      var(--black) 0%,
+      var(--black) 42%,
+      transparent 42%,
+      transparent 58%,
+      var(--black) 58%,
+      var(--black) 100%
+    );
+
+  z-index: -1;
+}
+
 .nav-link {
   width: max-content;
+
+  margin-top: 18px;
 
   font-family: "DM Mono", monospace;
 
@@ -142,9 +174,9 @@ a {
 }
 
 
-/* =========================
-   SÍMBOL CENTRAL
-   ========================= */
+/* =========================================
+   SÍMBOL SUPERIOR
+   ========================================= */
 
 .top-mark {
   display: flex;
@@ -154,35 +186,39 @@ a {
 
   gap: 5px;
 
-  height: 82px;
+  height: 95px;
 }
 
 .top-mark span {
   display: block;
 
   width: 5px;
-  height: 82px;
+  height: 95px;
 
   background: var(--black);
 }
 
 .top-mark span.red {
-  width: 27px;
+  width: 31px;
   background: var(--red);
 }
 
 
-/* =========================
+/* =========================================
    ALMARGE
-   ========================= */
+   ========================================= */
 
 .hero {
   position: absolute;
 
-  left: 2.5vw;
-  right: 2.5vw;
+  left: 7.8%;
+  right: 7.8%;
 
-  top: 22vh;
+  /*
+     Més amunt que ara.
+  */
+
+  top: 16.2%;
 
   z-index: 5;
 }
@@ -190,39 +226,56 @@ a {
 .hero h1 {
   margin: 0;
 
-  font-family: "Archivo Narrow", Impact, sans-serif;
+  font-family:
+    "Archivo Narrow",
+    Impact,
+    sans-serif;
+
+  /*
+     Molt més gran verticalment.
+  */
 
   font-size: clamp(
-    170px,
-    19.5vw,
-    340px
+    360px,
+    35vw,
+    700px
   );
 
   font-weight: 700;
 
-  line-height: 0.72;
+  line-height: 0.70;
 
   letter-spacing: -0.075em;
 
   white-space: nowrap;
 
-  transform-origin: left center;
+  transform-origin: left top;
 
-  transform: scaleX(0.90);
+  /*
+     El fem molt alt però controlem
+     l'amplada amb scaleX.
+  */
+
+  transform: scaleX(0.72);
 }
 
 
-/* =========================
-   INFORMACIÓ CENTRAL
-   ========================= */
+/* =========================================
+   INFORMACIÓ INFERIOR
+   ========================================= */
 
 .information {
   position: absolute;
 
-  left: 2.5vw;
-  right: 2.5vw;
+  left: 2.1vw;
+  right: 2.1vw;
 
-  top: 68vh;
+  /*
+     Una mica més avall,
+     com a la referència.
+  */
+
+  top: 77%;
 
   display: grid;
 
@@ -241,7 +294,7 @@ a {
 }
 
 
-/* text esquerra */
+/* esquerra */
 
 .description {
   font-family: "DM Mono", monospace;
@@ -304,19 +357,26 @@ a {
 }
 
 
-/* =========================
-   BLOC VERMELL INFERIOR
-   ========================= */
+/* =========================================
+   BLOC VERMELL
+   ========================================= */
 
 .red-bottom {
   position: absolute;
 
   left: 50%;
 
-  bottom: -4px;
+  bottom: -3px;
 
-  width: 105px;
-  height: 235px;
+  width: 108px;
+
+  /*
+     Més semblant a la referència:
+     surt del sistema de línies i arriba
+     fins a la zona negra.
+  */
+
+  height: 230px;
 
   transform: translateX(-50%);
 
@@ -326,9 +386,9 @@ a {
 }
 
 
-/* =========================
+/* =========================================
    FRANJA NEGRA INFERIOR
-   ========================= */
+   ========================================= */
 
 .bottom-black {
   position: absolute;
@@ -336,9 +396,13 @@ a {
   left: 0;
   right: 0;
 
-  top: 82vh;
+  /*
+     Ara és molt més petita.
+  */
 
-  height: 18vh;
+  top: 94vh;
+
+  height: 6vh;
 
   background: var(--black);
 
@@ -346,14 +410,16 @@ a {
 }
 
 
-/* text inferior */
+/* =========================================
+   TEXT INFERIOR
+   ========================================= */
 
 .bottom-title {
   position: absolute;
 
   left: 50%;
 
-  bottom: 22px;
+  bottom: 17px;
 
   transform: translateX(-50%);
 
@@ -361,27 +427,28 @@ a {
 
   font-family: "DM Mono", monospace;
 
-  font-size: 10px;
+  font-size: 11px;
 
-  letter-spacing: 0.40em;
+  letter-spacing: 0.42em;
 
-  text-indent: 0.40em;
+  text-indent: 0.42em;
 
   white-space: nowrap;
 }
 
 
-/* =========================
-   LÍNIES VERMELLES LATERALS
-   ========================= */
+/* =========================================
+   BARRES VERMELLES LATERALS
+   ========================================= */
 
 .side-red {
   position: fixed;
 
   top: 39vh;
 
-  width: 4.5vw;
-  height: 22px;
+  width: 4.7vw;
+
+  height: 23px;
 
   background: var(--red);
 
@@ -397,18 +464,14 @@ a {
 }
 
 
-/* =========================
+/* =========================================
    PANTALLES MITJANES
-   ========================= */
+   ========================================= */
 
 @media (max-width: 1100px) {
 
-  .hero {
-    top: 23vh;
-  }
-
   .hero h1 {
-    font-size: 20vw;
+    font-size: 35vw;
   }
 
   .information {
@@ -424,9 +487,9 @@ a {
 }
 
 
-/* =========================
+/* =========================================
    MÒBIL
-   ========================= */
+   ========================================= */
 
 @media (max-width: 700px) {
 
@@ -437,16 +500,16 @@ a {
   .cover-panel {
     width: 100%;
 
-    height: 88svh;
+    height: 94svh;
 
     min-height: 580px;
 
     clip-path: polygon(
       0 0,
       100% 0,
-      100% 88%,
+      100% 89.5%,
       53% 100%,
-      0 88%
+      0 89.5%
     );
   }
 
@@ -455,13 +518,15 @@ a {
 
     left: 20px;
     right: 20px;
+  }
 
-    border-top-width: 3px;
-
-    padding-top: 12px;
+  .cover-top::before {
+    height: 3px;
   }
 
   .nav-link {
+    margin-top: 13px;
+
     font-size: 8px;
 
     letter-spacing: 0.10em;
@@ -472,42 +537,41 @@ a {
   }
 
   .top-mark {
-    height: 52px;
-
+    height: 55px;
     gap: 3px;
   }
 
   .top-mark span {
     width: 3px;
-    height: 52px;
+    height: 55px;
   }
 
   .top-mark span.red {
-    width: 17px;
+    width: 19px;
   }
 
   .hero {
-    left: 20px;
-    right: 20px;
+    left: 7%;
+    right: 7%;
 
-    top: 27vh;
+    top: 18%;
   }
 
   .hero h1 {
-    font-size: 23vw;
+    font-size: 34vw;
 
-    line-height: 0.72;
+    line-height: 0.70;
 
-    letter-spacing: -0.06em;
+    letter-spacing: -0.065em;
 
-    transform: scaleX(0.90);
+    transform: scaleX(0.72);
   }
 
   .information {
     left: 20px;
     right: 20px;
 
-    top: 68vh;
+    top: 77%;
 
     grid-template-columns:
       75px
@@ -543,23 +607,23 @@ a {
   }
 
   .red-bottom {
-    width: 62px;
-    height: 165px;
+    width: 65px;
+    height: 175px;
   }
 
   .bottom-black {
-    top: 82vh;
-    height: 18vh;
+    top: 94vh;
+    height: 6vh;
   }
 
   .bottom-title {
-    bottom: 12px;
+    bottom: 11px;
 
     font-size: 7px;
 
-    letter-spacing: 0.22em;
+    letter-spacing: 0.25em;
 
-    text-indent: 0.22em;
+    text-indent: 0.25em;
   }
 
   .side-red {

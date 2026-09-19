@@ -113,40 +113,44 @@ html, body {
 /* 2. ALMARGE Mida Massiva */
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(10rem, 45vw, 600px); /* Molt més gran! */
+    font-size: clamp(10rem, 50vw, 600px); /* Molt més gran! */
     line-height: 0.75;
-    letter-spacing: -2px; /* Les lletres més juntes */
+    letter-spacing: 2px; /* Les lletres més juntes */
     color: var(--ink-black);
     text-transform: uppercase;
-    transform: scaleY(2.2); /* Més alt i estirat */
+    transform: scaleY(2.4); /* Més alt i estirat */
     text-align: center;
     margin: 0;
 }
 
-/* Llista de posts a la portada */
+/* Llista de posts a la portada amb SCROLL INTERN */
 .post-list {
     text-align: center;
-    margin-top: 10vh; 
+    margin-top: 8vh; 
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 15px; 
+    
+    /* AFEGIT: Limitem l'alçada al 30% de la pantalla i activem l'scroll */
+    max-height: 30vh;
+    overflow-y: auto;
+    padding: 0 20px; /* Espai per a la barra de desplaçament */
 }
 
-.post-link {
-    color: var(--ink-black);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.6rem; 
-    text-transform: uppercase; 
-    letter-spacing: 5px; 
-    border-bottom: 3px solid transparent;
-    padding-bottom: 5px;
-    transition: all 0.3s ease;
+/* DISSENY DE LA BARRA DE DESPLAÇAMENT BRUTALISTA */
+.post-list::-webkit-scrollbar {
+    width: 10px;
 }
-
-.post-link:hover {
-    color: var(--deco-red); 
-    border-bottom: 3px solid var(--deco-red); 
+.post-list::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+    border-left: 2px solid var(--ink-black); /* Línia separadora */
+}
+.post-list::-webkit-scrollbar-thumb {
+    background: var(--ink-black);
+    border: 1px solid var(--bg-cream);
+}
+.post-list::-webkit-scrollbar-thumb:hover {
+    background: var(--deco-red); /* Es torna vermella en passar el ratolí */
 }
 
 /* Estils de text per als escrits (Markdown) */

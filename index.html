@@ -21,23 +21,33 @@
   </nav>
 </header>
 
+
 <main>
 
   <section class="intro">
+
+    <div class="intro-shape intro-shape-one"></div>
+    <div class="intro-shape intro-shape-two"></div>
+    <div class="intro-line"></div>
+
     <h1>
-      <span class="line-1">Aquí hi ha coses que he escrit.</span>
-      <span class="line-2">No sé exactament què en faràs.</span>
-      <span class="line-3">Llegeix-les si vols.</span>
+      <span class="line-1">Aquí hi ha coses</span>
+      <span class="line-2">que he escrit.</span>
+      <span class="line-3">No sé exactament<br>què en faràs.</span>
+      <span class="line-4">Llegeix-les si vols.</span>
     </h1>
+
   </section>
+
 
   <section id="escrits" class="writing">
 
     <div class="section-head">
-      <div class="section-label">ESCRITS</div>
+      <div class="section-label">escrits</div>
     </div>
 
     {% for post in site.posts %}
+
     <article class="writing-item">
 
       <div class="date">
@@ -45,8 +55,11 @@
       </div>
 
       <div class="writing-content">
+
         <h2>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
         </h2>
 
         <p>
@@ -56,27 +69,34 @@
         <a class="read" href="{{ post.url | relative_url }}">
           llegir →
         </a>
+
       </div>
 
     </article>
+
     {% endfor %}
 
   </section>
 
+
   <section id="sobre" class="about">
-    <div class="section-label">SOBRE</div>
+
+    <div class="section-label">sobre</div>
 
     <p>
-      No hi ha gaire més a dir.
+      No cal que tot tingui un lloc.
     </p>
+
   </section>
 
 </main>
+
 
 <footer>
   <span>almarge © 2026</span>
   <span>fet sense pressa</span>
 </footer>
+
 
 </body>
 </html>

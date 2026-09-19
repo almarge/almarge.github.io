@@ -1,102 +1,61 @@
 ---
+layout: default
 ---
-<!doctype html>
-<html lang="ca">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Almarge — escrits">
-  <title>almarge</title>
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
-</head>
 
-<body>
+<main class="cover">
 
-<header class="site-header">
-  <a class="brand" href="{{ '/' | relative_url }}">almarge</a>
+  <div class="cover-top">
+    <a href="/about.html" class="nav-link">SOBRE</a>
 
-  <nav>
-    <a href="#escrits">escrits</a>
-    <a href="#sobre">sobre</a>
-  </nav>
-</header>
-
-
-<main>
-
-  <section class="intro">
-
-    <div class="intro-shape intro-shape-one"></div>
-    <div class="intro-shape intro-shape-two"></div>
-    <div class="intro-line"></div>
-
-    <h1>
-      <span class="line-1">Aquí hi ha coses</span>
-      <span class="line-2">que he escrit.</span>
-      <span class="line-3">No sé exactament<br>què en faràs.</span>
-      <span class="line-4">Llegeix-les si vols.</span>
-    </h1>
-
-  </section>
-
-
-  <section id="escrits" class="writing">
-
-    <div class="section-head">
-      <div class="section-label">escrits</div>
+    <div class="top-mark" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span class="red"></span>
+      <span></span>
+      <span></span>
     </div>
 
-    {% for post in site.posts %}
-
-    <article class="writing-item">
-
-      <div class="date">
-        {{ post.date | date: "%d.%m.%Y" }}
-      </div>
-
-      <div class="writing-content">
-
-        <h2>
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a>
-        </h2>
-
-        <p>
-          {{ post.excerpt | strip_html | strip_newlines | truncate: 210 }}
-        </p>
-
-        <a class="read" href="{{ post.url | relative_url }}">
-          llegir →
-        </a>
-
-      </div>
-
-    </article>
-
-    {% endfor %}
-
-  </section>
+    <a href="/escrits.html" class="nav-link">ESCRITS</a>
+  </div>
 
 
-  <section id="sobre" class="about">
+  <div class="cover-title">
+    <h1>ALMARGE</h1>
+  </div>
 
-    <div class="section-label">sobre</div>
 
-    <p>
-      No cal que tot tingui un lloc.
-    </p>
+  <div class="cover-middle">
 
-  </section>
+    <div class="side-label">
+      ESPAI<br>
+      DE PENSAMENT<br>
+      CRÍTIC
+    </div>
+
+    <div class="horizontal-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="issue">
+      <strong>MMXXVI</strong>
+      <span>NÚM. 01</span>
+    </div>
+
+  </div>
+
+
+  <div class="cover-bottom">
+
+    <div class="red-block" aria-hidden="true"></div>
+
+    <div class="bottom-title">
+      AL MARGE DEL RELAT
+    </div>
+
+  </div>
 
 </main>
-
-
-<footer>
-  <span>almarge © 2026</span>
-  <span>fet sense pressa</span>
-</footer>
-
-
-</body>
-</html>

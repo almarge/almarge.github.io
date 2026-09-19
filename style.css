@@ -2,15 +2,15 @@
 
 
 :root {
-  --paper: #f2eee4;
+  --paper: #f1ede2;
   --black: #111111;
-  --red: #8b211b;
+  --red: #8d1f19;
 }
 
 
-/* =========================
-   RESET
-   ========================= */
+/* ========================================
+   BASE
+   ======================================== */
 
 * {
   box-sizing: border-box;
@@ -20,6 +20,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   min-height: 100%;
 }
 
@@ -34,34 +35,41 @@ a {
 }
 
 
-/* =========================
+/* ========================================
    PORTADA
-   ========================= */
+   ======================================== */
 
 .cover {
   position: relative;
+
+  width: 100%;
   min-height: 100vh;
+
   overflow: hidden;
 
   background: var(--paper);
 
-  padding: 42px 5.5vw 0;
+  padding:
+    48px
+    7vw
+    0;
 }
 
 
-/* =========================
-   BANDES LATERALS
-   ========================= */
+/* ========================================
+   BANDES NEGRES LATERALS
+   ======================================== */
 
 .cover::before,
 .cover::after {
   content: "";
 
   position: absolute;
+
   top: 0;
   bottom: 0;
 
-  width: 5.5vw;
+  width: 4.5vw;
 
   background: var(--black);
 
@@ -77,72 +85,70 @@ a {
 }
 
 
-/* =========================
+/* ========================================
    CONTINGUT
-   ========================= */
+   ======================================== */
 
 .cover > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 
-/* =========================
+/* ========================================
    CAPÇALERA
-   ========================= */
+   ======================================== */
 
 .cover-top {
-  position: relative;
-
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
 
   align-items: start;
 
-  gap: 30px;
+  width: 100%;
 
   border-top: 5px solid var(--black);
 
-  padding-top: 18px;
+  padding-top: 17px;
 }
 
 
 /* ENLLAÇOS */
 
 .nav-link {
-  display: inline-block;
+  display: block;
 
   width: max-content;
 
-  font-family: "DM Mono", monospace;
+  font-family:
+    "DM Mono",
+    monospace;
 
   font-size: 13px;
+
   font-weight: 500;
+
+  line-height: 1;
 
   letter-spacing: 0.16em;
 
+  padding-bottom: 9px;
+
   border-bottom: 4px solid var(--black);
-
-  padding-bottom: 8px;
-
-  transition:
-    color 160ms ease,
-    background 160ms ease;
 }
 
 .cover-top .nav-link:last-child {
   justify-self: end;
 }
 
-.nav-link:hover {
-  color: var(--paper);
-  background: var(--black);
-}
 
-
-/* =========================
-   SÍMBOL SUPERIOR
-   ========================= */
+/* ========================================
+   MARCA CENTRAL
+   ======================================== */
 
 .top-mark {
   display: flex;
@@ -152,36 +158,41 @@ a {
 
   gap: 6px;
 
-  height: 82px;
+  height: 84px;
 }
 
 .top-mark span {
   display: block;
 
   width: 6px;
-  height: 82px;
+  height: 84px;
 
   background: var(--black);
 }
 
 .top-mark span.red {
-  width: 30px;
+  width: 31px;
 
   background: var(--red);
 }
 
 
-/* =========================
-   ALMARGE
-   ========================= */
+/* ========================================
+   TÍTOL PRINCIPAL
+   ======================================== */
 
 .cover-title {
-  margin-top: clamp(50px, 8vh, 100px);
+  width: 100%;
 
-  overflow: hidden;
+  margin-top:
+    clamp(55px, 9vh, 100px);
+
+  overflow: visible;
 }
 
 .cover-title h1 {
+  width: max-content;
+
   margin: 0;
 
   font-family:
@@ -189,37 +200,43 @@ a {
     Impact,
     sans-serif;
 
-  font-size: clamp(115px, 22vw, 360px);
+  font-size:
+    clamp(150px, 20.8vw, 370px);
 
   font-weight: 700;
 
-  line-height: 0.72;
+  line-height: 0.68;
 
-  letter-spacing: -0.075em;
+  letter-spacing: -0.065em;
 
   white-space: nowrap;
 
-  transform: scaleX(0.88);
+  transform:
+    scaleX(0.91);
 
-  transform-origin: left center;
+  transform-origin:
+    left center;
 }
 
 
-/* =========================
-   INFORMACIÓ CENTRAL
-   ========================= */
+/* ========================================
+   FRANJA CENTRAL
+   ======================================== */
 
 .cover-middle {
   display: grid;
 
   grid-template-columns:
-    120px
+    130px
     1fr
-    120px;
+    130px;
 
   align-items: center;
 
-  margin-top: clamp(55px, 9vh, 105px);
+  width: 100%;
+
+  margin-top:
+    clamp(75px, 10vh, 115px);
 
   padding-top: 17px;
 
@@ -227,20 +244,24 @@ a {
 }
 
 
-/* TEXT LATERAL */
+/* TEXT ESQUERRA */
 
 .side-label {
-  font-family: "DM Mono", monospace;
+  font-family:
+    "DM Mono",
+    monospace;
 
   font-size: 11px;
 
   line-height: 1.45;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
 }
 
 
-/* LÍNIES */
+/* ========================================
+   LÍNIES
+   ======================================== */
 
 .horizontal-lines {
   display: flex;
@@ -249,11 +270,14 @@ a {
 
   gap: 5px;
 
-  padding: 0 45px;
+  padding:
+    0 55px;
 }
 
 .horizontal-lines span {
   display: block;
+
+  width: 100%;
 
   height: 4px;
 
@@ -261,7 +285,9 @@ a {
 }
 
 
-/* NÚMERO */
+/* ========================================
+   NÚMERO
+   ======================================== */
 
 .issue {
   display: flex;
@@ -270,11 +296,13 @@ a {
 
   align-items: flex-end;
 
-  font-family: "DM Mono", monospace;
+  font-family:
+    "DM Mono",
+    monospace;
 
-  font-size: 12px;
+  font-size: 11px;
 
-  line-height: 1.7;
+  line-height: 1.8;
 
   letter-spacing: 0.12em;
 }
@@ -282,15 +310,15 @@ a {
 .issue strong {
   font-weight: 500;
 
-  border-bottom: 3px solid var(--black);
-
   padding-bottom: 5px;
+
+  border-bottom: 3px solid var(--black);
 }
 
 
-/* =========================
-   PART INFERIOR
-   ========================= */
+/* ========================================
+   ZONA NEGRA INFERIOR
+   ======================================== */
 
 .cover-bottom {
   position: absolute;
@@ -299,21 +327,23 @@ a {
   right: 0;
   bottom: 0;
 
-  height: 23vh;
+  height: 24vh;
 
-  min-height: 150px;
+  min-height: 170px;
 
   background: var(--black);
 
   display: flex;
 
-  justify-content: center;
-
   align-items: flex-end;
+
+  justify-content: center;
 }
 
 
-/* BLOC ROIG */
+/* ========================================
+   BLOC ROIG
+   ======================================== */
 
 .red-block {
   position: absolute;
@@ -321,56 +351,102 @@ a {
   left: 50%;
   bottom: 0;
 
-  width: 108px;
+  width: 110px;
 
-  height: 24vh;
+  height: 25vh;
 
-  min-height: 175px;
+  min-height: 190px;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
   background: var(--red);
 }
 
 
-/* TEXT INFERIOR */
+/* ========================================
+   TEXT INFERIOR
+   ======================================== */
 
 .bottom-title {
   position: relative;
 
-  z-index: 2;
+  z-index: 5;
 
-  margin-bottom: 19px;
+  margin-bottom: 17px;
 
   color: var(--paper);
 
-  font-family: "DM Mono", monospace;
+  font-family:
+    "DM Mono",
+    monospace;
 
-  font-size: 12px;
+  font-size: 11px;
+
+  font-weight: 400;
 
   letter-spacing: 0.42em;
 
   text-indent: 0.42em;
+
+  white-space: nowrap;
 }
 
 
-/* =========================
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 900px) {
+
+  .cover {
+    padding:
+      36px
+      6vw
+      0;
+  }
+
+  .cover-title h1 {
+    font-size: 21vw;
+  }
+
+  .cover-middle {
+    grid-template-columns:
+      110px
+      1fr
+      110px;
+  }
+
+  .horizontal-lines {
+    padding:
+      0 30px;
+  }
+}
+
+
+/* ========================================
    MÒBIL
-   ========================= */
+   ======================================== */
 
 @media (max-width: 700px) {
 
   .cover {
     min-height: 100svh;
 
-    padding: 24px 20px 0;
+    padding:
+      25px
+      20px
+      0;
   }
+
 
   .cover::before,
   .cover::after {
     display: none;
   }
 
+
+  /* CAPÇALERA */
 
   .cover-top {
     grid-template-columns:
@@ -381,8 +457,6 @@ a {
     border-top-width: 3px;
 
     padding-top: 13px;
-
-    gap: 12px;
   }
 
 
@@ -391,14 +465,16 @@ a {
 
     letter-spacing: 0.12em;
 
-    border-bottom-width: 3px;
-
     padding-bottom: 6px;
+
+    border-bottom-width: 3px;
   }
 
 
+  /* MARCA */
+
   .top-mark {
-    height: 52px;
+    height: 54px;
 
     gap: 3px;
   }
@@ -406,36 +482,41 @@ a {
   .top-mark span {
     width: 3px;
 
-    height: 52px;
+    height: 54px;
   }
 
   .top-mark span.red {
-    width: 18px;
+    width: 19px;
   }
 
 
+  /* TÍTOL */
+
   .cover-title {
-    margin-top: 75px;
+    margin-top: 78px;
   }
 
   .cover-title h1 {
     font-size: 25vw;
 
-    line-height: 0.74;
+    line-height: 0.7;
 
-    letter-spacing: -0.07em;
+    letter-spacing: -0.065em;
 
-    transform: scaleX(0.91);
+    transform:
+      scaleX(0.93);
   }
 
 
+  /* FRANJA */
+
   .cover-middle {
     grid-template-columns:
-      80px
+      78px
       1fr
-      70px;
+      67px;
 
-    margin-top: 65px;
+    margin-top: 68px;
 
     padding-top: 12px;
 
@@ -444,16 +525,17 @@ a {
 
 
   .side-label {
-    font-size: 8px;
+    font-size: 7.5px;
 
     line-height: 1.5;
   }
 
 
   .horizontal-lines {
-    padding: 0 15px;
-
     gap: 3px;
+
+    padding:
+      0 13px;
   }
 
   .horizontal-lines span {
@@ -462,52 +544,60 @@ a {
 
 
   .issue {
-    font-size: 8px;
+    font-size: 7.5px;
 
     line-height: 1.7;
   }
 
   .issue strong {
     border-bottom-width: 2px;
+
+    padding-bottom: 4px;
   }
 
+
+  /* NEGRO */
 
   .cover-bottom {
-    height: 20vh;
+    height: 21vh;
 
-    min-height: 135px;
+    min-height: 140px;
   }
 
+
+  /* ROIG */
 
   .red-block {
-    width: 65px;
+    width: 67px;
 
-    height: 22vh;
+    height: 23vh;
 
-    min-height: 150px;
+    min-height: 155px;
   }
 
 
+  /* TEXT */
+
   .bottom-title {
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 
-    font-size: 8px;
+    font-size: 7.5px;
 
-    letter-spacing: 0.25em;
+    letter-spacing: 0.26em;
 
-    text-indent: 0.25em;
+    text-indent: 0.26em;
   }
 }
 
 
-/* =========================
+/* ========================================
    PANTALLES MOLT PETITES
-   ========================= */
+   ======================================== */
 
 @media (max-width: 390px) {
 
   .cover-title {
-    margin-top: 65px;
+    margin-top: 67px;
   }
 
   .cover-title h1 {
@@ -516,21 +606,19 @@ a {
 
   .cover-middle {
     grid-template-columns:
-      70px
+      68px
       1fr
-      60px;
+      58px;
 
-    margin-top: 55px;
+    margin-top: 57px;
   }
 
   .horizontal-lines {
-    padding: 0 8px;
+    padding:
+      0 8px;
   }
 
-  .side-label {
-    font-size: 7px;
-  }
-
+  .side-label,
   .issue {
     font-size: 7px;
   }

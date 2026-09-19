@@ -3,7 +3,7 @@
     --bg-cream: #E5E0D8;
     --ink-black: #111111;
     --deco-red: #A3281E;
-    --font-display: 'Anton', sans-serif;
+    --font-display: 'Six Caps', sans-serif;
     --font-meta: 'Space Grotesk', sans-serif;
 }
 
@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: #0d0d0d; /* Fons exterior fosc per ressaltar el marc */
+    background-color: #0d0d0d;
     color: var(--ink-black);
     font-family: var(--font-meta);
     min-height: 100vh;
@@ -71,7 +71,6 @@ body {
     padding-bottom: 2px;
 }
 
-/* Motiu central (línies verticals i vermell) */
 .header-center-motif {
     display: flex;
     justify-content: center;
@@ -95,25 +94,75 @@ body {
     background-color: var(--deco-red);
 }
 
-/* --- TITULAR CENTRAL BRUTALISTA --- */
+/* --- CONTINGUT CENTRAL --- */
+.content-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titular a la portada */
 .hero-title-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 0 10px 0;
     overflow: hidden;
 }
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(5rem, 16vw, 13rem);
+    font-size: clamp(8rem, 20vw, 18rem);
     line-height: 0.85;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     color: var(--ink-black);
     text-transform: uppercase;
-    transform: scaleY(1.35); /* Efecto d'alçada d'estil brutalista/pàgina clàssica */
+    transform: scaleY(1.3);
     text-align: center;
 }
+
+/* Llista de posts a la portada */
+.post-list {
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.post-link {
+    color: var(--ink-black);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--ink-black);
+    padding-bottom: 3px;
+    transition: color 0.3s;
+}
+
+.post-link:hover {
+    color: var(--deco-red);
+}
+
+.post-list p {
+    margin-bottom: 15px;
+}
+
+/* Estils de text per als escrits (Markdown) */
+.content-container p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-container h1, .content-container h2, .content-container h3 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+}
+.content-container h1 { font-size: 4rem; transform: scaleY(1.2); }
 
 /* --- PEU DE PÀGINA I GRAELLA --- */
 .footer-grid {

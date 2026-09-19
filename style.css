@@ -1,24 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 
-/* ==================================================
-   VARIABLES
-   ================================================== */
-
 :root {
-  --paper: #f1eee2;
   --black: #111111;
+  --paper: #f1eee2;
   --red: #8d201c;
 }
 
 
-/* ==================================================
-   RESET
-   ================================================== */
-
 * {
   box-sizing: border-box;
 }
+
 
 html,
 body {
@@ -28,11 +21,13 @@ body {
   min-height: 100%;
 }
 
+
 body {
   background: var(--black);
   color: var(--black);
   overflow-x: hidden;
 }
+
 
 a {
   color: inherit;
@@ -40,618 +35,128 @@ a {
 }
 
 
-/* ==================================================
-   GRAN COMPOSICIÓ
-   ================================================== */
-
-.poster {
-  position: relative;
-
+.almarge-poster {
   width: 100%;
   min-height: 100vh;
 
-  background: var(--black);
-
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  overflow: hidden;
-}
-
-
-/* ==================================================
-   PAPER
-
-   La relació és deliberadament semblant
-   a la imatge de referència.
-   ================================================== */
-
-.paper {
-  position: relative;
-
-  width: 92vw;
-  height: min(92vh, 61.33vw);
-
-  min-height: 680px;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 45%,
-      rgba(255,255,255,0.13),
-      transparent 70%
-    ),
-    var(--paper);
-
-  overflow: hidden;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 90%,
-    52% 100%,
-    0 90%
-  );
-}
-
-
-/* textura de paper molt subtil */
-
-.paper::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: 0.13;
-
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0,0,0,0.025) 0px,
-      rgba(0,0,0,0.025) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-
-  z-index: 50;
-}
-
-
-/* ==================================================
-   CAPÇALERA
-   ================================================== */
-
-.masthead {
-  position: absolute;
-
-  top: 5.2%;
-  left: 2.8%;
-  right: 2.8%;
-
-  height: 12%;
-
-  display: grid;
-
-  grid-template-columns: 1fr auto 1fr;
-
-  align-items: start;
-
-  z-index: 10;
-}
-
-
-/* línia superior */
-
-.masthead::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 4px;
-
-  background:
-    linear-gradient(
-      to right,
-      var(--black) 0%,
-      var(--black) 43%,
-      transparent 43%,
-      transparent 57%,
-      var(--black) 57%,
-      var(--black) 100%
-    );
-}
-
-
-/* ==================================================
-   NAVEGACIÓ
-   ================================================== */
-
-.nav {
-  position: relative;
-
-  margin-top: 19px;
-
-  width: max-content;
-
-  font-family: "DM Mono", monospace;
-
-  font-size: 12px;
-
-  font-weight: 500;
-
-  line-height: 1;
-
-  letter-spacing: 0.14em;
-
-  padding-bottom: 9px;
-
-  border-bottom: 3px solid var(--black);
-}
-
-.nav-right {
-  justify-self: end;
-}
-
-
-/* ==================================================
-   SÍMBOL CENTRAL
-   ================================================== */
-
-.symbol {
-  position: relative;
-
-  display: flex;
-
   justify-content: center;
   align-items: flex-start;
 
-  gap: 5px;
-
-  height: 92px;
-}
-
-.symbol i,
-.symbol b {
-  display: block;
-
-  width: 5px;
-  height: 92px;
-
   background: var(--black);
 
-  margin: 0;
-  padding: 0;
-}
-
-.symbol b {
-  width: 29px;
-
-  background: var(--red);
+  overflow: hidden;
 }
 
 
-/* ==================================================
-   ALMARGE
-
-   Aquesta és la peça dominant de la portada.
-   ================================================== */
-
-.title {
-  position: absolute;
-
-  left: 2.8%;
-  right: 2.8%;
-
-  top: 24%;
-
-  z-index: 5;
-
-  overflow: visible;
-}
-
-.title h1 {
-  margin: 0;
-
-  font-family:
-    "Archivo Narrow",
-    Impact,
-    sans-serif;
-
-  font-size: 19.2vw;
-
-  font-weight: 700;
-
-  line-height: 0.72;
-
-  letter-spacing: -0.075em;
-
-  white-space: nowrap;
-
-  transform-origin: left center;
-
-  transform: scaleX(0.92);
-}
-
-
-/* ==================================================
-   INFORMACIÓ
-   ================================================== */
-
-.meta {
-  position: absolute;
-
-  left: 2.8%;
-  right: 2.8%;
-
-  top: 72.8%;
-
-  height: 11%;
-
-  display: grid;
-
-  grid-template-columns:
-    130px
-    1fr
-    120px;
-
-  align-items: start;
-
-  border-top: 4px solid var(--black);
-
-  padding-top: 15px;
-
-  z-index: 10;
-}
-
-
-/* text esquerre */
-
-.meta-left {
-  display: flex;
-
-  flex-direction: column;
-
-  font-family: "DM Mono", monospace;
-
-  font-size: 10px;
-
-  line-height: 1.42;
-
-  letter-spacing: 0.03em;
-}
-
-
-/* ==================================================
-   SISTEMA DE LÍNIES
-   ================================================== */
-
-.rules {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 5px;
-
-  padding: 2px 35px 0;
-}
-
-.rules i {
+.almarge-svg {
   display: block;
 
   width: 100%;
+  height: auto;
 
-  height: 3px;
+  max-width: 1600px;
+  min-height: 100vh;
 
-  background: var(--black);
+  font-display: swap;
 }
 
 
-/* ==================================================
-   NÚMERO
-   ================================================== */
+/* TIPOGRAFIA MONO */
 
-.meta-right {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-end;
-
+.mono {
   font-family: "DM Mono", monospace;
-
-  font-size: 10px;
-
-  line-height: 1.7;
-
-  letter-spacing: 0.08em;
+  fill: var(--black);
 }
 
-.meta-right strong {
+
+.nav-text {
+  font-size: 16px;
   font-weight: 500;
-
-  padding-bottom: 5px;
-
-  border-bottom: 3px solid var(--black);
+  letter-spacing: 2px;
 }
 
 
-/* ==================================================
-   BLOC VERMELL INFERIOR
-   ================================================== */
-
-.red-column {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 0;
-
-  width: 92px;
-
-  height: 22%;
-
-  transform: translateX(-50%);
-
-  background: var(--red);
-
-  z-index: 20;
+.info {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 
-/* ==================================================
-   PEU NEGRE
-   ================================================== */
-
-.black-footer {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  bottom: 0;
-
-  height: 8vh;
-
-  background: var(--black);
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: flex-end;
-
-  padding-bottom: 17px;
-
-  z-index: 2;
-}
-
-.black-footer span {
-  color: var(--paper);
-
-  font-family: "DM Mono", monospace;
-
-  font-size: 10px;
-
-  letter-spacing: 0.40em;
-
-  text-indent: 0.40em;
-
-  white-space: nowrap;
+.number {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 
 
-/* ==================================================
-   BARRES VERMELLES LATERALS
-   ================================================== */
+.footer-text {
+  fill: var(--paper);
 
-.poster::before,
-.poster::after {
+  font-size: 15px;
+  font-weight: 400;
+
+  letter-spacing: 5px;
+}
+
+
+/* TÍTOL */
+
+.almarge-title {
+  font-family:
+    "Archivo Narrow",
+    "Arial Narrow",
+    Impact,
+    sans-serif;
+
+  font-size: 255px;
+  font-weight: 700;
+
+  letter-spacing: -13px;
+
+  fill: var(--black);
+}
+
+
+/* TEXTURA MOLT SUBTIL */
+
+.almarge-svg::after {
   content: "";
-
-  position: fixed;
-
-  top: 40vh;
-
-  width: 4vw;
-
-  height: 22px;
-
-  background: var(--red);
-
-  z-index: 1;
-}
-
-.poster::before {
-  left: 0;
-}
-
-.poster::after {
-  right: 0;
 }
 
 
-/* ==================================================
-   PANTALLES MITJANES
-   ================================================== */
+/* INTERACCIÓ */
 
-@media (max-width: 1200px) {
-
-  .title h1 {
-    font-size: 19.5vw;
-  }
-
-  .meta {
-    grid-template-columns:
-      115px
-      1fr
-      110px;
-  }
-
-  .rules {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
+a text,
+a rect {
+  cursor: pointer;
 }
 
 
-/* ==================================================
-   MÒBIL
-   ================================================== */
+@media (max-width: 900px) {
 
-@media (max-width: 700px) {
+  .almarge-svg {
+    min-height: 0;
+    width: 1300px;
+    max-width: none;
 
-  .paper {
-    width: 100vw;
-
-    height: 92svh;
-
-    min-height: 580px;
-
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% 90%,
-      52% 100%,
-      0 90%
+    transform: translateX(
+      calc((100vw - 1300px) / 2)
     );
   }
 
+}
 
-  .masthead {
-    top: 25px;
 
-    left: 20px;
-    right: 20px;
+@media (max-width: 600px) {
+
+  .almarge-svg {
+    width: 1100px;
+
+    transform: translateX(
+      calc((100vw - 1100px) / 2)
+    );
   }
 
-  .masthead::before {
-    height: 3px;
-  }
-
-
-  .nav {
-    margin-top: 13px;
-
-    font-size: 8px;
-
-    padding-bottom: 6px;
-
-    border-bottom-width: 2px;
-  }
-
-
-  .symbol {
-    height: 55px;
-
-    gap: 3px;
-  }
-
-  .symbol i,
-  .symbol b {
-    width: 3px;
-    height: 55px;
-  }
-
-  .symbol b {
-    width: 18px;
-  }
-
-
-  .title {
-    left: 6%;
-    right: 6%;
-
-    top: 25%;
-  }
-
-  .title h1 {
-    font-size: 23vw;
-
-    line-height: 0.72;
-
-    letter-spacing: -0.06em;
-
-    transform: scaleX(0.91);
-  }
-
-
-  .meta {
-    left: 20px;
-    right: 20px;
-
-    top: 72%;
-
-    grid-template-columns:
-      72px
-      1fr
-      60px;
-
-    border-top-width: 3px;
-
-    padding-top: 10px;
-  }
-
-  .meta-left {
-    font-size: 7px;
-  }
-
-  .rules {
-    gap: 3px;
-
-    padding: 2px 10px 0;
-  }
-
-  .rules i {
-    height: 2px;
-  }
-
-  .meta-right {
-    font-size: 7px;
-  }
-
-  .meta-right strong {
-    border-bottom-width: 2px;
-
-    padding-bottom: 3px;
-  }
-
-
-  .red-column {
-    width: 58px;
-
-    height: 22%;
-  }
-
-
-  .black-footer {
-    height: 8svh;
-
-    padding-bottom: 11px;
-  }
-
-  .black-footer span {
-    font-size: 7px;
-
-    letter-spacing: 0.24em;
-
-    text-indent: 0.24em;
-  }
-
-
-  .poster::before,
-  .poster::after {
-    width: 20px;
-
-    height: 13px;
-
-    top: 40vh;
-  }
 }

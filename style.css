@@ -205,13 +205,13 @@ html, body {
     letter-spacing: 1px;
 }
 
-/* 3. El bloc vermell perfectament centrat */
+/* --- CENTRE DEL PEU DE PÀGINA --- */
 .footer-center {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Això crea l'espai idèntic a dalt i a baix */
+    gap: 15px; /* Espai entre les línies negres i el text vermell */
 }
 
 .horizontal-stripes {
@@ -226,11 +226,16 @@ html, body {
     );
 }
 
-.red-block-bottom {
-    width: 40px;
-    height: 120px;
-    background-color: var(--deco-red);
-    /* Hem eliminat el marge negatiu que el trencava */
+/* El nou text COTA ZERO en lloc del bloc vermell */
+.footer-manifesto {
+    color: var(--deco-red);
+    font-family: var(--font-meta);
+    font-weight: 700;
+    font-size: 1.3rem; 
+    letter-spacing: 12px; 
+    text-transform: uppercase;
+    text-align: center;
+    margin-right: -12px; 
 }
 
 .footer-right {

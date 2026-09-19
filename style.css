@@ -1,14 +1,12 @@
-/* --- Variables de Color i Fonts --- */
+/* --- VARIABLES --- */
 :root {
-    --bg-color: #E6DFCD; /* Crema clar de la imatge */
-    --text-color: #000000;
-    --red-color: #A3281E; /* Vermell teula de la imatge */
-    --accent-red-small: #C0392B; /* Un vermell una mica més viu per les línies fines */
-    --title-font: 'Anton', sans-serif; /* Tipografia modular i alta */
-    --body-font: 'Inter', sans-serif;
+    --bg-cream: #E5E0D8;
+    --ink-black: #111111;
+    --deco-red: #A3281E;
+    --font-display: 'Anton', sans-serif;
+    --font-meta: 'Space Grotesk', sans-serif;
 }
 
-/* --- Resets i Estils Generals --- */
 * {
     margin: 0;
     padding: 0;
@@ -16,139 +14,195 @@
 }
 
 body {
-    background-color: var(--bg-color);
-    font-family: var(--body-font);
-    color: var(--text-color);
-    line-height: 1.2;
-    overflow-x: hidden;
+    background-color: #0d0d0d; /* Fons exterior fosc per ressaltar el marc */
+    color: var(--ink-black);
+    font-family: var(--font-meta);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/* --- Contenidor Principal (Graella central) --- */
-.main-container {
+/* --- MARC ART DÉCO GLOBAL --- */
+.art-deco-frame {
+    background-color: var(--bg-cream);
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    border: 3px solid var(--ink-black);
+    box-shadow: 0 0 0 10px var(--bg-cream), 0 0 0 13px var(--ink-black);
+}
+
+.canvas {
     display: flex;
     flex-direction: column;
-    width: 90vw;
-    max-width: 1200px;
-    height: 90vh;
-    margin: 5vh auto;
+    justify-content: space-between;
+    min-height: 80vh;
+    border: 1px solid var(--ink-black);
     position: relative;
-    border: 2px solid var(--text-color); /* El marc negre global */
+    padding: 10px;
 }
 
-/* --- Part Superior (Top Bar) --- */
-.top-bar {
+/* --- CAPÇALERA EDITORIAL --- */
+.header-grid {
     display: grid;
-    grid-template-columns: 1fr 100px 1fr;
-    align-items: center;
-    border-bottom: 2px solid var(--text-color);
-    height: 15%;
-}
-
-.side-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    letter-spacing: 0.1rem;
-}
-
-.center-lines {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.red-bar {
-    width: 10px;
-    height: 2px;
-    background-color: var(--red-color);
-    margin: 2px 0;
-}
-
-.pattern {
-    width: 50px;
-    height: 50px;
-    background-image: 
-        repeating-linear-gradient(to right, var(--text-color), var(--text-color) 2px, transparent 2px, transparent 4px),
-        repeating-linear-gradient(to bottom, var(--text-color), var(--text-color) 2px, transparent 2px, transparent 4px);
-    background-size: 8px 8px; /* Ajusta la densitat del patró */
-}
-
-/* --- Titular Gran (ALMARGE) --- */
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1; /* Ocupa tot l'espai central */
-}
-
-.main-title {
-    font-family: var(--title-font);
-    font-size: calc(10vw + 5rem); /* Tamany de font massiu i responsive */
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: -0.05em; /* Lletres més juntes */
-    transform: scaleY(1.5); /* Estira la font verticalment per imitar el disseny */
-    line-height: 1;
-}
-
-/* --- Part Inferior (Bottom Area) --- */
-.bottom-area {
-    display: grid;
-    grid-template-rows: auto 50px; /* Graella per la part de linies i peu */
-    border-top: 2px solid var(--text-color);
-}
-
-.bottom-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 100px 1fr 1.5fr;
-    align-items: end;
+    grid-template-columns: 1fr 120px 1fr;
+    align-items: start;
+    border-bottom: 2px solid var(--ink-black);
     padding-bottom: 10px;
 }
 
-.info-block, .meta-block {
-    font-size: 0.8rem;
-    padding: 0 10px;
+.header-left, .header-right {
+    padding: 5px 10px;
 }
 
-.info-block p {
-    max-width: 150px;
-}
-
-.lines-pattern {
-    height: 3px;
-    background-image: repeating-linear-gradient(to right, var(--text-color), var(--text-color) 1px, transparent 1px, transparent 3px);
-}
-
-.red-block {
-    grid-column: 3; /* Rectangle vermell central */
-    width: 60px;
-    height: 120px;
-    background-color: var(--red-color);
-    transform: translateY(20%); /* Baixa una mica com a la imatge */
-}
-
-.date, .number {
+.header-right {
     text-align: right;
+}
+
+.nav-link {
+    color: var(--ink-black);
+    text-decoration: none;
+    font-weight: 700;
     font-size: 0.9rem;
-    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--ink-black);
+    padding-bottom: 2px;
 }
 
-/* --- Peu de Pàgina --- */
-.footer-tagline {
+/* Motiu central (línies verticals i vermell) */
+.header-center-motif {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    height: 45px;
+}
+
+.stripe-pattern {
+    width: 25px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--ink-black),
+        var(--ink-black) 2px,
+        transparent 2px,
+        transparent 5px
+    );
+}
+
+.red-pillar-top {
+    width: 16px;
+    background-color: var(--deco-red);
+}
+
+/* --- TITULAR CENTRAL BRUTALISTA --- */
+.hero-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 16vw, 13rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: var(--ink-black);
+    text-transform: uppercase;
+    transform: scaleY(1.35); /* Efecto d'alçada d'estil brutalista/pàgina clàssica */
     text-align: center;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    padding: 5px 0;
 }
 
-/* --- Responsive Bàsic --- */
+/* --- PEU DE PÀGINA I GRAELLA --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: flex-end;
+    border-top: 2px solid var(--ink-black);
+    padding-top: 15px;
+    gap: 15px;
+}
+
+.tagline-box {
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.horizontal-stripes {
+    width: 100%;
+    height: 12px;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--ink-black),
+        var(--ink-black) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+}
+
+.red-block-bottom {
+    width: 70px;
+    height: 90px;
+    background-color: var(--deco-red);
+    margin-top: -10px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.meta-date {
+    border-bottom: 2px solid var(--ink-black);
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+}
+
+/* --- SUB-CAPCIÓ INFERIOR --- */
+.bottom-bar {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--ink-black);
+    margin-top: 10px;
+}
+
+.sub-caption {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+
+/* --- ADAPTACIÓ MÒBIL --- */
 @media (max-width: 768px) {
-    .top-bar { grid-template-columns: 1fr 60px 1fr; }
-    .bottom-grid { grid-template-columns: 1fr; text-align: center; gap: 10px; }
-    .red-block { display: none; } /* Amaga el cubell vermell per dispositius petits */
-    .main-title { transform: none; font-size: 4rem; } /* Simplifica el títol */
+    .art-deco-frame {
+        padding: 10px;
+        box-shadow: none;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .hero-title {
+        transform: none;
+    }
 }

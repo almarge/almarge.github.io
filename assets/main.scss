@@ -1,0 +1,21 @@
+---
+---
+@import "minima";
+
+/* Canvia el color blau de l'article per un negre fosc */
+a, a:visited {
+  color: #1a1a1a;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Amaga l'enllaç de RSS que no necessites */
+.feed-subscribe {
+  display: none;
+}
+
+/* Amaga completament els textos del final de la pàgina */
+.site-footer {
+  display: none;
+}

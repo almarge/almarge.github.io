@@ -1,15 +1,16 @@
 ---
 ---
-/* VARIABLES DE COLOR (Paper, Tinta i Verd Oxford) */
+/* VARIABLES DE COLOR */
 :root {
   --bg-paper: #f6f4ef;
+  --bg-hover: #ede9e0;
   --text-ink: #1e1e1c;
   --text-muted: #6e6c66;
-  --border-subtle: #e4e0d8;
   --oxford-green: #112e22;
+  --oxford-soft: rgba(17, 46, 34, 0.07);
 }
 
-/* CONFIGURACIÓ BASE I NITIDESA */
+/* CONFIGURACIÓ BASE */
 html, body {
   margin: 0;
   padding: 0;
@@ -18,38 +19,35 @@ html, body {
   color: var(--text-ink);
   font-family: 'Newsreader', Georgia, serif;
   font-size: 19px;
-  line-height: 1.7;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* SELECCIÓ DE TEXT EN VERD OXFORD */
 ::selection {
   background-color: var(--oxford-green);
   color: var(--bg-paper);
 }
 
 .wrapper {
-  max-width: 620px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem 6rem;
+  padding: 4.5rem 2rem 7rem;
 }
 
-/* CAPÇALERA MINIMALISTA AMB LÍNIA FINA */
+/* CAPÇALERA SENSE LÍNIA RECTA I AMB CÀPSULA ARRODONIDA */
 .site-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding-bottom: 1.2rem;
-  margin-bottom: 4rem;
-  border-bottom: 1px solid var(--border-subtle);
+  align-items: center;
+  margin-bottom: 4.5rem;
 }
 
 .site-title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-ink);
   text-decoration: none;
@@ -57,29 +55,47 @@ html, body {
 
 .site-nav a {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--oxford-green);
+  background-color: var(--oxford-soft);
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px; /* Forma de càpsula suau */
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .site-nav a:hover {
-  color: var(--oxford-green);
+  background-color: var(--oxford-green);
+  color: var(--bg-paper);
 }
 
-/* ETIQUETES DE SECCIÓ (Estil Editorial) */
+/* EPÍGRAF FLUID AMB DESPLAÇAMENT ORGÀNIC */
+.epigraph {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 4.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--oxford-green);
+  border-radius: 2px;
+  line-height: 1.5;
+  max-width: 480px; /* Evita que ocupi tot l'ample */
+}
+
+/* ETIQUETA DE SECCIÓ */
 .section-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.2rem;
 }
 
-/* LLISTA D'ARXIU (Estil Westenberg) */
+/* LLISTA D'ARTICLES ORGÀNICA (SENSE RATLLES NI CAIXES) */
 .archive-list {
   list-style: none;
   padding: 0;
@@ -87,22 +103,53 @@ html, body {
 }
 
 .archive-item {
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 1.8rem 0;
-}
-
-.archive-item:first-child {
-  padding-top: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .archive-link {
   text-decoration: none;
   color: inherit;
   display: block;
+  padding: 1.5rem 1.6rem;
+  margin-left: -0.4rem;
+  border-radius: 20px; /* Cantonades arrodonides i suaus */
+  transition: background-color 0.3s ease, transform 0.25s ease;
+}
+
+.archive-link:hover {
+  background-color: var(--bg-hover);
+  transform: translateX(6px); /* Moviment suau cap a la dreta */
+}
+
+/* DATA AL COSTAT DEL NÚMERO (TRENCA EL RECTANGLE) */
+.archive-meta-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.45rem;
+}
+
+.archive-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--oxford-green);
+  background-color: var(--oxford-soft);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.archive-date, .post-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
 }
 
 .archive-title {
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   font-weight: 500;
   line-height: 1.25;
   margin: 0 0 0.4rem 0;
@@ -117,32 +164,22 @@ html, body {
 .archive-excerpt {
   font-size: 1.05rem;
   color: var(--text-muted);
-  margin: 0 0 0.7rem 0;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.archive-date, .post-meta {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  display: block;
+  margin: 0;
+  line-height: 1.55;
+  max-width: 520px; /* Deixa respirar el marge dret */
 }
 
 /* DISSENY DELS ARTICLES INTERNS */
 .post-header {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 3.5rem;
 }
 
 .post-title {
-  font-size: 2.6rem;
+  font-size: 2.7rem;
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  margin: 0.6rem 0 0.8rem 0;
+  margin: 0.8rem 0 0.8rem 0;
 }
 
 .post-subtitle {
@@ -150,79 +187,15 @@ html, body {
   color: var(--text-muted);
   font-style: italic;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
+  max-width: 520px;
 }
 
 .post-content p {
   margin-bottom: 1.6rem;
 }
 
-/* CITES FILOSÒFIQUES AMB TOC OXFORD */
-blockquote {
-  margin: 2.5rem 0;
-  padding-left: 1.5rem;
-  border-left: 2px solid var(--oxford-green);
-  font-style: italic;
-  color: var(--text-muted);
-}
-
-/* SEPARADOR D'IDEES ELEGANT */
-hr {
-  border: none;
-  text-align: center;
-  margin: 3rem 0;
-}
-hr::before {
-  content: "· · ·";
-  color: var(--text-muted);
-  letter-spacing: 0.5em;
-}
-
-/* PEU DE L'ARTICLE */
-.post-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.back-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.back-link:hover {
-  color: var(--oxford-green);
-}
-
-/* EPÍGRAF DE PORTADA */
-.epigraph {
-  font-size: 1.25rem;
-  font-style: italic;
-  color: var(--text-muted);
-  margin: -1.5rem 0 3.5rem 0;
-  line-height: 1.5;
-}
-
-/* NUMERACIÓ D'ARXIU */
-.archive-meta-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.4rem;
-}
-
-.archive-number {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--oxford-green);
-  letter-spacing: 0.06em;
-}
-
-/* CAPLLETRA EDITORIAL (DROP CAP) EN VERD OXFORD */
+/* CAPLLETRA EDITORIAL EN VERD OXFORD */
 .post-content > p:first-of-type::first-letter {
   float: left;
   font-size: 3.8rem;
@@ -232,4 +205,48 @@ hr::before {
   padding-bottom: 2px;
   color: var(--oxford-green);
   font-weight: 500;
+}
+
+/* CITES I SEPARADORS */
+blockquote {
+  margin: 2.5rem 0;
+  padding: 1.2rem 1.8rem;
+  background-color: var(--bg-hover);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--text-ink);
+}
+
+hr {
+  border: none;
+  text-align: center;
+  margin: 3.5rem 0;
+}
+hr::before {
+  content: "· · ·";
+  color: var(--text-muted);
+  letter-spacing: 0.6em;
+}
+
+/* BOTÓ DE TORNAR EN FORMA DE CÀPSULA */
+.post-footer {
+  margin-top: 4.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--oxford-green);
+  background-color: var(--oxford-soft);
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.back-link:hover {
+  background-color: var(--oxford-green);
+  color: var(--bg-paper);
 }

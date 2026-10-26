@@ -1,11 +1,17 @@
 ---
 layout: default
+title: Notes
 ---
-<h2>Notes</h2>
-<ul>
-  {% for nota in site.notes %}
-    <li style="margin-bottom: 1.5rem;">
-      <h3 style="margin: 0;"><a href="{{ nota.url | relative_url }}">{{ nota.title }}</a></h3>
-    </li>
-  {% endfor %}
-</ul>
+<div class="archive">
+  <h2 class="section-label">Notes i apunts</h2>
+  <ul class="archive-list">
+    {% for nota in site.notes %}
+      <li class="archive-item">
+        <a href="{{ nota.url | relative_url }}" class="archive-link">
+          <h3 class="archive-title">{{ nota.title }}</h3>
+          <p class="archive-excerpt">{{ nota.content | strip_html | truncatewords: 22 }}</p>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

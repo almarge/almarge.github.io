@@ -1,7 +1,7 @@
 title: "Almarge"
-description: "Notes"
+description: "Punt en blanc"
 theme: minima
-YAML
+
 collections:
   notes:
     output: true

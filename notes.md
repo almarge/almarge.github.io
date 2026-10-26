@@ -1,9 +1,8 @@
 ---
-layout: default
+layout: page
 title: Notes
 ---
 <div class="home">
-  <h2 class="post-list-heading">Notes</h2>
   <ul class="post-list">
     {% for nota in site.notes %}
       <li>

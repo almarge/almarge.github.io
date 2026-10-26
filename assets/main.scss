@@ -1,6 +1,10 @@
 ---
 ---
 @import "minima";
+body {
+  background-color: #fdfaf6; /* Un beige clar i elegant */
+  color: #2c2c2c; /* Un negre trencat per no cansar la vista */
+}
 
 /* Canvia el color de l'article */
 a, a:visited {

@@ -1,5 +1,18 @@
 title: "Almarge"
-description: "Punt en blanc"
+description: "Blog de filosofia"
+
 collections:
   notes:
     output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "post"

@@ -10,7 +10,13 @@
   <div class="wrapper">
     <header>
       <a href="{{ '/' | relative_url }}" style="font-weight:bold;">{{ site.title }}</a>
-      <nav><a href="{{ '/notes' | relative_url }}">Notes</a></nav>
+      <nav>
+        {% if page.url contains 'notes' %}
+          <a href="{{ '/' | relative_url }}">Articles</a>
+        {% else %}
+          <a href="{{ '/notes' | relative_url }}">Notes</a>
+        {% endif %}
+      </nav>
     </header>
     <main>
       {{ content }}

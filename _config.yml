@@ -1,3 +1,7 @@
 title: "Almarge"
 description: "Notes"
 theme: minima
+YAML
+collections:
+  notes:
+    output: true

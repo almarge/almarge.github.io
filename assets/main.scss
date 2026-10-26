@@ -1,45 +1,198 @@
 ---
 ---
+/* VARIABLES DE COLOR (Paper, Tinta i Verd Oxford) */
+:root {
+  --bg-paper: #f6f4ef;
+  --text-ink: #1e1e1c;
+  --text-muted: #6e6c66;
+  --border-subtle: #e4e0d8;
+  --oxford-green: #112e22;
+}
+
+/* CONFIGURACIÓ BASE I NITIDESA */
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #f4f1ea;
-  color: #2c2c2c;
-  font-family: "Georgia", "Garamond", serif;
-  line-height: 1.6;
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-body {
-  padding: 2rem;
-  box-sizing: border-box;
+
+/* SELECCIÓ DE TEXT EN VERD OXFORD */
+::selection {
+  background-color: var(--oxford-green);
+  color: var(--bg-paper);
 }
+
 .wrapper {
-  max-width: 650px;
+  max-width: 620px;
   margin: 0 auto;
+  padding: 3.5rem 1.5rem 6rem;
 }
-header {
+
+/* CAPÇALERA MINIMALISTA AMB LÍNIA FINA */
+.site-header {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 1.2rem;
   margin-bottom: 4rem;
-  font-family: system-ui, sans-serif;
+  border-bottom: 1px solid var(--border-subtle);
 }
-a {
-  color: #1a1a1a;
+
+.site-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-ink);
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+
+.site-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
-ul {
+
+.site-nav a:hover {
+  color: var(--oxford-green);
+}
+
+/* ETIQUETES DE SECCIÓ (Estil Editorial) */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* LLISTA D'ARXIU (Estil Westenberg) */
+.archive-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-h1, h2, h3 {
-  font-weight: 800;
-  letter-spacing: -1px;
+
+.archive-item {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.8rem 0;
 }
+
+.archive-item:first-child {
+  padding-top: 0.5rem;
+}
+
+.archive-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.archive-title {
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 0.4rem 0;
+  color: var(--text-ink);
+  transition: color 0.2s ease;
+}
+
+.archive-link:hover .archive-title {
+  color: var(--oxford-green);
+}
+
+.archive-excerpt {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin: 0 0 0.7rem 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.archive-date, .post-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  display: block;
+}
+
+/* DISSENY DELS ARTICLES INTERNS */
+.post-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
 .post-title {
-  font-size: 3rem;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0.6rem 0 0.8rem 0;
+}
+
+.post-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.post-content p {
+  margin-bottom: 1.6rem;
+}
+
+/* CITES FILOSÒFIQUES AMB TOC OXFORD */
+blockquote {
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--oxford-green);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* SEPARADOR D'IDEES ELEGANT */
+hr {
+  border: none;
+  text-align: center;
+  margin: 3rem 0;
+}
+hr::before {
+  content: "· · ·";
+  color: var(--text-muted);
+  letter-spacing: 0.5em;
+}
+
+/* PEU DE L'ARTICLE */
+.post-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.back-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--oxford-green);
 }

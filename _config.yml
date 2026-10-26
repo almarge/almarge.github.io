@@ -1,7 +1,0 @@
-title: "Almarge"
-description: "Punt en blanc"
-theme: minima
-
-collections:
-  notes:
-    output: true

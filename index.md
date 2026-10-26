@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<p class="epigraph">Assajos i fragments sobre filosofia, silenci i pensament lent.</p>
+<p class="epigraph">Al marge del relat, fet sense pressa.</p>
 
 <div class="archive">
   <h2 class="section-label">Arxiu d'articles</h2>

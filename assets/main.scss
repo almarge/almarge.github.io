@@ -10,9 +10,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Amaga l'enllaç de RSS que no necessites */
-.feed-subscribe {
-  display: none;
+/* Amaga l'enllaç de RSS */
+.feed-subscribe, .rss-subscribe {
+  display: none !important;
 }
 
 /* Amaga completament els textos del final de la pàgina */

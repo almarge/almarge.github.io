@@ -196,3 +196,40 @@ hr::before {
 .back-link:hover {
   color: var(--oxford-green);
 }
+
+/* EPÍGRAF DE PORTADA */
+.epigraph {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: -1.5rem 0 3.5rem 0;
+  line-height: 1.5;
+}
+
+/* NUMERACIÓ D'ARXIU */
+.archive-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+
+.archive-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--oxford-green);
+  letter-spacing: 0.06em;
+}
+
+/* CAPLLETRA EDITORIAL (DROP CAP) EN VERD OXFORD */
+.post-content > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.8rem;
+  line-height: 0.82;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 2px;
+  color: var(--oxford-green);
+  font-weight: 500;
+}

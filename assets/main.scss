@@ -2,20 +2,17 @@
 ---
 @import "minima";
 
-/* Canvia el color blau de l'article per un negre fosc */
+/* Canvia el color de l'article */
 a, a:visited {
   color: #1a1a1a;
 }
-a:hover {
-  text-decoration: underline;
-}
 
-/* Amaga l'enllaç de RSS */
-.feed-subscribe, .rss-subscribe {
+/* Fulmina l'enllaç RSS buscant la seva URL interna */
+a[href*="feed.xml"], p:has(a[href*="feed.xml"]), .feed-subscribe, .rss-subscribe {
   display: none !important;
 }
 
-/* Amaga completament els textos del final de la pàgina */
+/* Amaga el peu de pàgina sencer */
 .site-footer {
-  display: none;
+  display: none !important;
 }

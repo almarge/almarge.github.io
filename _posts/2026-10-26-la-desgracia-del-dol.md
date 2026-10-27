@@ -15,6 +15,6 @@ Quan estimes profundament algú, quan construeixes la teva vida al voltant d’u
 
 I, de sobte, aquesta expectativa col·lisiona amb la realitat. La vida te la pren. El món deixa de comportar-se com el teu sistema nerviós anticipava. El mapa interior i el territori exterior ja no coincideixen. I aquest desajust és, en essència, el dol.
 
-> No és només tristesa. És l’esfondrament d’una realitat en què confiaves.
+> No és només tristesa. És el naufragi d’una realitat en què confiaves.
 
 Per això el dol desorienta tant. No només trobes a faltar algú: camines per un món que s’ha tornat estrany, encara que res no hagi canviat en aparença. Els carrers són els mateixos. Les rutines també. Però el significat ha variat, i és el significat allò que dona estructura a la vida.

@@ -1,7 +1,7 @@
 ---
 title: "La desgràcia del dol"
 
-subtitle: "No és només tristesa. És l’esfondrament d’una realitat en què confiaves."
+subtitle: "No és només tristesa. És el naufragi d’una realitat en què confiaves."
 
 date: 2026-10-26 00:00:00 +0100
 
